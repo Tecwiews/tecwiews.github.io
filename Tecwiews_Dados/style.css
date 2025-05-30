@@ -12,7 +12,7 @@ body {
 
 .topo {
   background-color: var(--azul);
-  padding: 30px 20px;
+  padding: 16px 20px;
   display: flex;
   justify-content:left;
 }
@@ -46,7 +46,7 @@ body {
 
 .menu {
   background-color: var(--prata);
-  padding: 15px 0;
+  padding: 05px 0;
   display: flex;
   justify-content: center;
 }
