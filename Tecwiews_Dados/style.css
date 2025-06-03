@@ -24,6 +24,22 @@ body {
   max-width: 1200px;
 }
 
+.imagem-cabecalho {
+  height: 160px;
+  width: auto;
+  margin-left: auto; /* empurra a imagem para a direita */
+  margin-right: 0px; /* Opcional: aproxima da borda direita */
+  object-fit: contain; /* Garante proporção adequada se for necessário */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .imagem-cabecalho {
+    display: none;
+  }
+}
+
 .logo-icone {
   height: 260px;
   width:auto;
