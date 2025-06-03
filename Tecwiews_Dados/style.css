@@ -74,70 +74,109 @@ body {
   color: white;
 }
 
-.recepcao {
-  background-color: #f4f4f4;
-  padding: 40px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.recepcao-imagem img {
-  width: 300px;
-  max-width: 100%;
-  height:auto;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.conteudo-recepcao {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: 20px;
-  text-align: left;
-}
-
-.frase-impacto {
-  color: var(--azul);
-  font-size: 3.4rem;
-  margin-bottom: 20px;
-}
-
-.texto-recepcao {
-  color: #333;
-  font-size: 1.4rem;
-  line-height: 1.2;
-  margin-bottom: 15px;
-}
-
+/* Container da seção de recepção */
 .recepcao-container {
   display: flex;
   flex-wrap: wrap;
-  align-items:center;
+  align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 80px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px;
 }
 
+/* Estilo da imagem */
+.recepcao-imagem img {
+  width: 500px;
+  max-width: 100%;
+  height:auto;
+  border-radius: 18px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Conteúdo textual */
+.conteudo-recepcao {
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Frase de impacto */
+.frase-impacto {
+  color: var(--azul);
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+}
+
+/* Texto explicativo */
+.texto-recepcao {
+  color: #333;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
+  .recepcao-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .conteudo-recepcao {
     text-align: center;
-    margin: 0 10px;
   }
 
   .frase-impacto {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .texto-recepcao {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .recepcao-imagem img {
     width: 100%;
     max-width: 340px;
-  }}
+  }
+}
+
+.servicos {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.servicos-container {
+  max-width: 1000px;
+  text-align:center;
+}
+
+.titulo-servicos {
+  color: var(--azul);
+  font-size: 3.8rem;
+  margin-bottom: 30px;
+}
+
+.texto-servicos {
+  color: #333;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .titulo-servicos {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .texto-servicos {
+    font-size: 1.2rem;
+    text-align: justify;
+  }
+
+  .servicos-container {
+    padding: 0 10px;
+  }
+}
