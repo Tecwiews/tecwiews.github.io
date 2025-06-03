@@ -180,3 +180,143 @@ body {
     padding: 0 10px;
   }
 }
+
+.segmentos {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.titulo-segmentos {
+  color: var(--azul);
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+}
+
+.segmentos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.segmento {
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.segmento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.icone {
+  font-size: 3rem;
+  color: var(--laranja);
+  display: block;
+  margin-bottom: 15px;
+}
+
+.segmento p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .segmentos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .segmento {
+    width: 90%;
+  }
+}
+
+.beneficios {
+  background-color: #f4f4f4;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.titulo-beneficios {
+  color: var(--azul);
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+}
+
+.conteudo-beneficios {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.conteudo-beneficios p {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .conteudo-beneficios {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
+.clientes {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.titulo-clientes {
+  color: var(--azul);
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+}
+
+.grade-clientes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.grade-clientes img {
+  max-width: 160px;
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.grade-clientes img:hover {
+  filter: grayscale(0%);
+}
+@media (max-width: 768px) {
+  .grade-clientes {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+.rodape {
+  background-color: var(--azul);
+  color: var(--prata);
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+}
+
+.rodape a {
+  color: var(--laranja);
+  text-decoration: none;
+}
+
+.rodape a:hover {
+  text-decoration: underline;
+}
