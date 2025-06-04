@@ -225,30 +225,33 @@ function handleFormSubmission(form) {
     const submitBtn = form.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     
-    // Estado de carregamento
+    // Inicializa EmailJS
+    emailjs.init('bltMU_I6wB5FoIsez');
+    
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.7';
     
-    // Coleta dados do formulário
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const templateParams = {
+        from_name: form.name.value,
+        from_email: form.email.value,
+        company: form.company.value || 'Não informado',
+        phone: form.phone.value || 'Não informado',
+        service: form.service.value || 'Não selecionado',
+        message: form.message.value
+    };
     
-    // Simula envio (substitua por integração real)
-    setTimeout(() => {
-        // Sucesso
-        showSuccessMessage();
-        form.reset();
-        
-        // Restaura botão
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-        
-        // Aqui você faria a integração real:
-        // sendToServer(data);
-        
-    }, 2000);
+    emailjs.send('service_crpsmtt', 'template_ss2qg6n', templateParams)
+        .then(() => {
+            showSuccessMessage();
+            form.reset();
+        })
+        .catch(() => {
+            alert('Erro no envio. Tente novamente.');
+        })
+        .finally(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
 }
 
 // ===== MENSAGEM DE SUCESSO =====
