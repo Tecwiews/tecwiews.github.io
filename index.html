@@ -1,115 +1,326 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tecwiews</title>
-  <link rel="stylesheet" href="Tecwiews_Dados/style.css" />
+    <!-- Meta tags essenciais para SEO e responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tecwiews - Documentação técnica e sites profissionais para empresas industriais">
+    <meta name="keywords" content="documentação técnica, modelagem 3D, sites industriais, desenhos técnicos">
+    
+    <title>Tecwiews - Documentação Técnica e Sites Profissionais</title>
+    
+    <!-- Links para arquivos CSS e fontes -->
+    <link rel="stylesheet" href="Tecwiews_Dados/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="topo">
-    <div class="container-header">
-      <img src="Tecwiews_Dados/Logo_PS/Logo Tecwiews_S.F.png" alt="Logo Tecwiews" class="logo-icone" />
-      <div class="texto-logo">
-        <h1 class="titulo">Tecwiews</h1>
-        <p class="slogan">Projetos comunicam e sites vendem</p>
-      </div>
-      <img src="Tecwiews_Dados/Imagens/Novo.png" alt="Imagem Cabeçalho" class="imagem-cabecalho" />
-    </div>
-  </header>
-  
-  <nav class="menu">
-  <ul>
-    <li><a href="#">Quem Somos</a></li>
-    <li><a href="#">Portfólio</a></li>
-    <li><a href="#">Serviços</a></li>
-    <li><a href="#">Contato</a></li>
-  </ul>
-</nav>
+    <!-- HEADER - Cabeçalho fixo com navegação -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <!-- Logo da empresa -->
+            <div class="logo">TECWIEWS</div>
+            
+            <!-- Menu de navegação principal -->
+            <nav class="nav">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#services" class="nav-link">Serviços</a></li>
+                    <li><a href="#segments" class="nav-link">Segmentos</a></li>
+                    <li><a href="#benefits" class="nav-link">Benefícios</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <!-- Botão hambúrguer para mobile -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<section class="recepcao">
-  <div class="recepcao-container">
-    <div class="recepcao-imagem">
-      <img src="Tecwiews_Dados/Imagens/Ima recepção_pers..png" alt="Serviços da Tecwiews" />
-    </div>
-    <div class="conteudo-recepcao">
-      <h2 class="frase-impacto">Tornamos seu produto compreendido, encontrado e valorizado.</h2>
-      <p class="texto-recepcao">
-        Documentação e digitalização de produtos com informações técnicas claras e objetivas, apresentadas de forma profissional e acessível.<br/>
-        Conectamos sua empresa ao mercado digital e ampliamos sua visibilidade online.<br/>
-        Ideal para negócios que ainda não têm presença digital ou que precisam se destacar mais no mercado.
+    <!-- SEÇÃO HERO - Primeira impressão e chamada principal -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <!-- Conteúdo textual da seção hero -->
+            <div class="hero-content">
+                <h1 class="hero-title">Tornamos seu produto compreendido, encontrado e valorizado</h1>
+                <p class="hero-description">
+                    Documentamos e digitalizamos seus produtos com desenhos e informações técnicas de forma clara, 
+                    acessível e objetiva. Desenvolvemos sites profissionais que posicionam sua empresa no ambiente 
+                    digital, ampliando a visibilidade e facilitando o contato com novos clientes.
+                </p>
+                <!-- Botão de chamada para ação -->
+                <a href="#contact" class="cta-button">Fale Conosco</a>
+            </div>
+            
+            <!-- Área visual com ícones animados -->
+            <div class="hero-visual">
+                <div class="tech-illustration">
+                    <div class="tech-icons">
+                        <div class="tech-icon">🎯</div>
+                        <div class="tech-icon">📐</div>
+                        <div class="tech-icon">🖥️</div>
+                        <div class="tech-icon">⚙️</div>
+                        <div class="tech-icon">📊</div>
+                        <div class="tech-icon">🚀</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      
-      </p>
-    </div>
-  </div>
-</section>
+    <!-- SEÇÃO SERVIÇOS - Apresenta os 4 serviços principais -->
+    <section id="services" class="services">
+        <div class="container">
+            <!-- Cabeçalho da seção -->
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções completas para documentação técnica e presença digital</p>
+            
+            <!-- Grid de cards de serviços -->
+            <div class="services-grid">
+                <!-- Card 1: Documentação Técnica -->
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3 class="service-title">Documentação Técnica</h3>
+                    <p class="service-description">
+                        Criação de documentações técnicas completas com desenhos técnicos, especificações 
+                        detalhadas e manuais de instrução profissionais.
+                    </p>
+                </div>
+                
+                <!-- Card 2: Modelagem 3D -->
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="service-title">Modelagem 3D</h3>
+                    <p class="service-description">
+                        Desenvolvimento de modelos 3D precisos e vistas explodidas para facilitar 
+                        a compreensão e montagem de produtos complexos.
+                    </p>
+                </div>
+                
+                <!-- Card 3: Listas de Componentes -->
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3 class="service-title">Listas de Componentes</h3>
+                    <p class="service-description">
+                        Organização detalhada de listas de componentes, peças e materiais com 
+                        especificações técnicas e códigos de referência.
+                    </p>
+                </div>
+                
+                <!-- Card 4: Sites Profissionais -->
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Sites Profissionais</h3>
+                    <p class="service-description">
+                        Desenvolvimento de sites modernos e responsivos que destacam sua empresa 
+                        no ambiente digital e atraem novos clientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="servicos">
-  <div class="servicos-container">
-    <h2 class="titulo-servicos">O que a Tecwiews faz por você</h2>
-    <p class="texto-servicos">
-      Atuamos na criação de documentações técnicas completas dos seus produtos, incluindo desenhos técnicos, modelagem 3D, vistas explodidas e listas de componentes.
-    </p>
-    <p class="texto-servicos">
-      Também oferecemos suporte à manutenção industrial, com documentação de peças e componentes internos, facilitando a fabricação sob medida.
-    </p>
-    <p class="texto-servicos">
-      Além disso, desenvolvemos sites profissionais e objetivos, voltados para gerar visibilidade e atrair novos clientes. Sua empresa será vista com clareza e confiança no ambiente digital.
-    </p>
-  </div>
-</section>
+    <!-- SEÇÃO SEGMENTOS - Mostra os tipos de clientes atendidos -->
+    <section id="segments" class="segments">
+        <div class="container">
+            <h2 class="section-title">Segmentos de Atuação</h2>
+            <p class="section-subtitle">Atendemos diversos setores com soluções personalizadas</p>
+            
+            <!-- Grid de segmentos -->
+            <div class="segments-grid">
+                <div class="segment-card">
+                    <div class="segment-icon">🏭</div>
+                    <h3 class="segment-title">Indústrias de Pequeno e Médio Porte</h3>
+                    <p>Documentação industrial e digitalização de processos produtivos</p>
+                </div>
+                
+                <div class="segment-card">
+                    <div class="segment-icon">🔧</div>
+                    <h3 class="segment-title">Comércio Técnico e Peças</h3>
+                    <p>Catálogos digitais e documentação de produtos técnicos</p>
+                </div>
+                
+                <div class="segment-card">
+                    <div class="segment-icon">⚙️</div>
+                    <h3 class="segment-title">Oficinas Industriais</h3>
+                    <p>Manuais de manutenção e fabricação sob medida</p>
+                </div>
+                
+                <div class="segment-card">
+                    <div class="segment-icon">💻</div>
+                    <h3 class="segment-title">Empresas sem Presença Digital</h3>
+                    <p>Sites profissionais para entrada no mercado digital</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="segmentos">
-  <h2 class="titulo-segmentos">Quem pode contar com a Tecwiews</h2>
-  <div class="segmentos-grid">
-    <div class="segmento">
-      <span class="icone">🏭</span>
-      <p>Indústrias de pequeno e médio porte</p>
-    </div>
-    <div class="segmento">
-      <span class="icone">🧰</span>
-      <p>Comércio técnico e empresas de peças</p>
-    </div>
-    <div class="segmento">
-      <span class="icone">🔧</span>
-      <p>Oficinas industriais e fabricantes sob demanda</p>
-    </div>
-    <div class="segmento">
-      <span class="icone">🌐</span>
-      <p>Empresas e Comércios com pouco ou nenhum site profissional</p>
-    </div>
-  </div>
-</section>
+    <!-- SEÇÃO BENEFÍCIOS - Explica por que digitalizar -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Por que Digitalizar?</h2>
+            <p class="section-subtitle">Os benefícios de ter seus produtos bem documentados e online</p>
+            
+            <div class="benefits-content">
+                <!-- Lista de benefícios -->
+                <ul class="benefits-list">
+                    <li class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">Produtos bem documentados reduzem erros e facilitam vendas</div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">Transmitem confiança e profissionalismo aos clientes</div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">Acessibilidade online 24/7 para seus clientes</div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">Posicionamento à frente da concorrência</div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">Facilita manutenção e suporte técnico</div>
+                    </li>
+                    <li class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">Amplia visibilidade no mercado digital</div>
+                    </li>
+                </ul>
+                
+                <!-- Box destacado -->
+                <div class="benefits-visual">
+                    <h3>O futuro é digital</h3>
+                    <p>O mercado está mudando. Os negócios acontecem cada vez mais no ambiente digital. 
+                    A Tecwiews está aqui para levar sua empresa com segurança e qualidade para esse novo cenário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="beneficios">
-  <h2 class="titulo-beneficios">Por que sua empresa precisa disso</h2>
-  <div class="conteudo-beneficios">
-    <p>
-      Produtos bem documentados reduzem erros, facilitam vendas e transmitem confiança.
-      Ter tudo isso acessível online, por meio de um site bem construído, coloca sua empresa na frente da concorrência.
-    </p>
-    <p>
-      O mercado está mudando. Os negócios acontecem cada vez mais no ambiente digital.
-      E a Tecwiews está aqui para levar sua empresa com segurança e qualidade para esse novo cenário.
-    </p>
-  </div>
-</section>
+    <!-- SEÇÃO CONTATO - Formulário e informações de contato -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Vamos conversar sobre seu projeto</p>
+            
+            <div class="contact-content">
+                <!-- Informações de contato -->
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <p>Estamos prontos para transformar sua documentação técnica e criar sua presença digital.</p>
+                    <br>
+                    <div class="contact-item">
+                        <strong>📱 WhatsApp:</strong> (31) 9XXXX-XXXX
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧 Email:</strong> contato@tecwiews.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>🌐 Site:</strong> www.tecwiews.com
+                    </div>
+                    <br>
+                    <div class="contact-hours">
+                        <strong>Horário de Atendimento:</strong><br>
+                        Segunda a Sexta: 8h às 18h<br>
+                        Sábado: 8h às 12h
+                    </div>
+                </div>
+                
+                <!-- Formulário de contato -->
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Empresa</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Serviço de Interesse</label>
+                        <select id="service" name="service">
+                            <option value="">Selecione um serviço</option>
+                            <option value="documentacao">Documentação Técnica</option>
+                            <option value="modelagem">Modelagem 3D</option>
+                            <option value="listas">Listas de Componentes</option>
+                            <option value="sites">Sites Profissionais</option>
+                            <option value="todos">Todos os Serviços</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <!-- Botão de envio -->
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-<section class="clientes">
-  <h2 class="titulo-clientes">Empresas que já contam com a Tecwiews</h2>
-  <div class="grade-clientes">
-    <img src="Tecwiews_Dados/Logos/logo1.png" alt="Cliente 1" />
-    <img src="Tecwiews_Dados/Logos/logo2.png" alt="Cliente 2" />
-    <img src="Tecwiews_Dados/Logos/logo3.png" alt="Cliente 3" />
-    <img src="Tecwiews_Dados/Logos/logo4.png" alt="Cliente 4" />
-  </div>
-</section>
+    <!-- FOOTER - Rodapé do site -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Informações da empresa -->
+                <div class="footer-info">
+                    <div class="footer-logo">TECWIEWS</div>
+                    <p>Documentação técnica e sites profissionais para o setor industrial</p>
+                </div>
+                
+                <!-- Links rápidos -->
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#segments">Segmentos</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Serviços -->
+                <div class="footer-services">
+                    <h4>Nossos Serviços</h4>
+                    <ul>
+                        <li>Documentação Técnica</li>
+                        <li>Modelagem 3D</li>
+                        <li>Sites Profissionais</li>
+                        <li>Consultoria Digital</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tecwiews. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-<footer class="rodape">
-  <p>&copy; 2025 Tecwiews - Todos os direitos reservados.</p>
-  <p><a href="mailto:contato@tecwiews.com.br">contato@tecwiews.com.br</a></p>
-</footer>
-
+    <!-- Link para arquivo JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
