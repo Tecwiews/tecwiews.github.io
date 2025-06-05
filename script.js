@@ -443,3 +443,12 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Fecha menu ao clicar no link (mobile)
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            closeMobileMenu();
+        }
+    });
+});
