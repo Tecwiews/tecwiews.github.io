@@ -452,3 +452,43 @@ document.querySelectorAll('.nav-link').forEach(link => {
         }
     });
 });
+// === JAVASCRIPT PARA MODAL ===
+function openModal(caseId) {
+    const modal = document.getElementById(caseId + 'Modal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Impede scroll da página
+    }
+}
+
+function closeModal(caseId) {
+    const modal = document.getElementById(caseId + 'Modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restaura scroll da página
+    }
+}
+
+// Fecha modal clicando fora dele
+window.addEventListener('click', function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+// Fecha modal com ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});

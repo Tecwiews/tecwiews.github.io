@@ -10,7 +10,7 @@
     <title>Tecwiews - Documentação Técnica e Sites Profissionais</title>
     
     <!-- Links para arquivos CSS e fontes -->
-    <link rel="stylesheet" href="Tecwiews_Dados/style.css">
+    <link rel="stylesheet" href="Imagens_Site/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,13 +24,17 @@
     <header class="header" id="header">
         <div class="nav-container">
             <!-- Logo da empresa -->
-            <div class="logo">TECWIEWS</div>
+            <div class="logo">
+                <img src="Imagens_Site/Logo Tecwiews_01.png" alt="Tecwiews Logo" class="logo-image">
+                TECWIEWS
+            </div>
             
             <!-- Menu de navegação principal -->
             <nav class="nav">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#home" class="nav-link">Início</a></li>
                     <li><a href="#services" class="nav-link">Serviços</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
                     <li><a href="#segments" class="nav-link">Segmentos</a></li>
                     <li><a href="#benefits" class="nav-link">Benefícios</a></li>
                     <li><a href="#contact" class="nav-link">Contato</a></li>
@@ -127,6 +131,194 @@
             </div>
         </div>
     </section>
+
+    </section> <!-- Fim da seção services -->
+
+    <!-- SEÇÃO PORTFÓLIO - Inserir no HTML entre #services e #contact -->
+<section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <h2 class="section-title">Portfólio de Projetos</h2>
+        <p class="section-subtitle">Casos reais que geraram resultados para nossos clientes</p>
+        
+        <div class="portfolio-grid">
+            <!-- Card do Caso 1 -->
+            <div class="portfolio-card" onclick="openModal('case1')">
+                <div class="card-image">
+                    <img src="Portifolio_Caso.01/Modelamento_01.png" alt="Engenharia Reversa - Peça Melhorada">
+                </div>
+                <div class="card-content">
+                    <h3>Engenharia Reversa com Melhoria</h3>
+                    <p class="card-summary">Economia de 56% e peça que não quebra mais há 16+ meses</p>
+                    <div class="card-stats">
+                        <span class="stat-item">
+                            <strong>56%</strong> economia
+                        </span>
+                        <span class="stat-item">
+                            <strong>16+</strong> meses funcionando
+                        </span>
+                    </div>
+                    <div class="card-tags">
+                        <span class="tag">Modelagem 3D</span>
+                        <span class="tag">Melhoria</span>
+                        <span class="tag">Economia</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card do Caso 2 (Placeholder para próximo caso) -->
+            <div class="portfolio-card coming-soon">
+                <div class="card-image">
+                    <div class="coming-soon-content">
+                        <i class="icon">⚙️</i>
+                        <h4>Novo Caso em Breve</h4>
+                        <p>Mais projetos sendo documentados</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Próximo Projeto</h3>
+                    <p class="card-summary">Em desenvolvimento...</p>
+                </div>
+            </div>
+
+            <!-- Card do Caso 3 (Placeholder) -->
+            <div class="portfolio-card coming-soon">
+                <div class="card-image">
+                    <div class="coming-soon-content">
+                        <i class="icon">🔧</i>
+                        <h4>Novo Caso em Breve</h4>
+                        <p>Mais projetos sendo documentados</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Próximo Projeto</h3>
+                    <p class="card-summary">Em desenvolvimento...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL DO CASO 1 -->
+<div id="case1Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('case1')">&times;</span>
+        
+        <div class="modal-header">
+            <h2>Engenharia Reversa com Melhoria de Projeto</h2>
+            <div class="modal-tags">
+                <span class="tag">Modelagem 3D</span>
+                <span class="tag">Desenho Técnico</span>
+                <span class="tag">Melhoria</span>
+                <span class="tag">Economia</span>
+            </div>
+        </div>
+
+        <div class="modal-summary">
+            <div class="summary-grid">
+                <div class="problem-box">
+                    <h4>🔴 O Problema</h4>
+                    <ul>
+                        <li>Peça quebrou em apenas 7 meses (máquina nova)</li>
+                        <li>Fabricante original: R$ 800 + atendimento lento</li>
+                        <li>Ponto fraco na geometria original</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <h4>🔧 A Solução</h4>
+                    <ul>
+                        <li>Modelagem 3D da peça quebrada</li>
+                        <li>Análise e correção do ponto fraco</li>
+                        <li>Desenho técnico para usinagem local</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <h4>✅ O Resultado</h4>
+                    <ul>
+                        <li><strong>56% de economia</strong> (R$ 350 vs R$ 800)</li>
+                        <li><strong>16+ meses</strong> funcionando sem quebrar</li>
+                        <li><strong>Fornecedor local</strong> e entrega rápida</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-process">
+            <h3>Processo de Desenvolvimento</h3>
+            
+            <div class="process-step">
+                <h4>1. Análise da Peça Original</h4>
+                <div class="step-images">
+                    <img src="Portifolio_Caso.01/Peça_01.png" alt="Peça original - Vista 1">
+                    <img src="Portifolio_Caso.01/Peça_02.png" alt="Peça original - Vista 2">
+                    <img src="Portifolio_Caso.01/Peça_03.png" alt="Peça original - Vista 3">
+                </div>
+                <p>Análise detalhada da peça original do fabricante para entender a geometria e identificar pontos críticos.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>2. Identificação do Problema</h4>
+                <div class="step-images single">
+                    <img src="Portifolio_Caso.01/Peça_01-Ponto%20quebra.png" alt="Ponto de ruptura identificado">
+                </div>
+                <p><strong>Descoberta:</strong> Canto vivo causou concentração de tensão, levando à ruptura prematura da peça.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>3. Modelagem 3D da Solução</h4>
+                <div class="step-images">
+                    <img src="Portifolio_Caso.01/Modelamento_01.png" alt="Modelo 3D - Vista 1">
+                    <img src="Portifolio_Caso.01/Modelamento_02.png" alt="Modelo 3D - Vista 2">
+                </div>
+                <p>Criação do modelo 3D no SolidWorks com as correções necessárias para eliminar o ponto fraco.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>4. Melhoria Implementada</h4>
+                <div class="step-images single">
+                    <img src="Portifolio_Caso.01/Detalhe%20Raio.png" alt="Detalhe da correção">
+                </div>
+                <p><strong>Solução aplicada:</strong> Raio no canto vivo, aumentando a massa de material e eliminando a concentração de tensão sem impactar a funcionalidade.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>5. Documentação Técnica</h4>
+                <div class="step-images single">
+                    <img src="Portifolio_Caso.01/Desenho%20Tecnico%202D.JPG" alt="Desenho técnico">
+                </div>
+                <p>Desenho técnico completo com todas as cotas e especificações para usinagem precisa.</p>
+            </div>
+        </div>
+
+        <div class="modal-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">56%</span>
+                    <span class="stat-label">Economia</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">16+</span>
+                    <span class="stat-label">Meses funcionando</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">R$ 450</span>
+                    <span class="stat-label">Economizados</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Sucesso</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-cta">
+            <h3>Precisa de engenharia reversa ou melhoria de projetos?</h3>
+            <p>Transformamos problemas em soluções econômicas e duradouras</p>
+            <a href="#contact" class="btn-primary" onclick="closeModal('case1')">Solicitar Orçamento</a>
+        </div>
+    </div>
+</div>
 
     <!-- SEÇÃO SEGMENTOS - Mostra os tipos de clientes atendidos -->
     <section id="segments" class="segments">
