@@ -492,3 +492,63 @@ document.addEventListener('keydown', function(event) {
         });
     }
 });
+// === JAVASCRIPT ADICIONAL PARA CASO 02 ===
+// O JavaScript principal já existe, apenas garantir que as funções funcionem para case2
+
+// As funções openModal('case2') e closeModal('case2') já funcionarão automaticamente
+// com o código JavaScript existente, pois elas são genéricas.
+
+// Funcionalidade adicional: Smooth scroll melhorado para casos longos
+document.addEventListener('DOMContentLoaded', function() {
+    // Melhoria no scroll para modais com muito conteúdo
+    const modals = document.querySelectorAll('.modal');
+    
+    modals.forEach(modal => {
+        modal.addEventListener('scroll', function() {
+            // Opcional: Adicionar efeito de parallax ou outros efeitos durante scroll
+            // Por enquanto, mantém funcionalidade básica
+        });
+    });
+    
+    // Melhoria na navegação por teclado
+    document.addEventListener('keydown', function(event) {
+        // Já existe no código principal, mas garantindo funcionamento
+        if (event.key === 'Escape') {
+            const activeModals = document.querySelectorAll('.modal[style*="block"]');
+            activeModals.forEach(modal => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+    });
+});
+
+// Função adicional para analytics (opcional)
+function trackPortfolioView(caseId) {
+    // Rastrear visualizações dos casos do portfólio
+    // Útil para futuras análises de quais casos geram mais interesse
+    console.log(`Caso ${caseId} visualizado`);
+    
+    // Aqui pode adicionar Google Analytics, Hotjar, etc.
+    // Exemplo: gtag('event', 'portfolio_view', { case_id: caseId });
+}
+
+// Adicionar tracking aos cliques (opcional)
+// Chamar trackPortfolioView quando modal for aberto
+const originalOpenModal = window.openModal;
+if (typeof originalOpenModal === 'function') {
+    window.openModal = function(caseId) {
+        originalOpenModal(caseId);
+        trackPortfolioView(caseId);
+    };
+} else {
+    // Se não existir, criar a função completa
+    window.openModal = function(caseId) {
+        const modal = document.getElementById(caseId + 'Modal');
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            trackPortfolioView(caseId);
+        }
+    };
+}

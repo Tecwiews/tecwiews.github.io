@@ -166,19 +166,183 @@
             </div>
 
             <!-- Card do Caso 2 (Placeholder para próximo caso) -->
-            <div class="portfolio-card coming-soon">
-                <div class="card-image">
-                    <div class="coming-soon-content">
-                        <i class="icon">⚙️</i>
-                        <h4>Novo Caso em Breve</h4>
-                        <p>Mais projetos sendo documentados</p>
-                    </div>
+            <!-- SUBSTITUIR O CARD CASO 2 NO HTML EXISTENTE -->
+<!-- Localizar o card "coming-soon" do Caso 2 e substituir por este código: -->
+
+<!-- Card do Caso 2 - SUBSTITUIR O PLACEHOLDER -->
+<div class="portfolio-card" onclick="openModal('case2')">
+    <div class="card-image">
+        <img src="Portifolio_Caso.02/3D-Caso_02.1.png" alt="Documentação Técnica - Estampo e Máquina">
+    </div>
+    <div class="card-content">
+        <h3>Documentação Técnica para Continuidade</h3>
+        <p class="card-summary">Dois casos que evitaram paradas de produção e geraram autonomia</p>
+        <div class="card-stats">
+            <span class="stat-item">
+                <strong>2</strong> equipamentos documentados
+            </span>
+            <span class="stat-item">
+                <strong>100%</strong> autonomia
+            </span>
+        </div>
+        <div class="card-tags">
+            <span class="tag">Documentação</span>
+            <span class="tag">Estampo</span>
+            <span class="tag">Máquina</span>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DO CASO 2 - ADICIONAR APÓS O MODAL DO CASO 1 -->
+<div id="case2Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('case2')">&times;</span>
+        
+        <div class="modal-header">
+            <h2>Documentação Técnica para Continuidade Produtiva</h2>
+            <div class="modal-tags">
+                <span class="tag">Documentação</span>
+                <span class="tag">Modelagem 3D</span>
+                <span class="tag">Desenho Técnico</span>
+                <span class="tag">Autonomia</span>
+            </div>
+        </div>
+
+        <div class="modal-summary">
+            <div class="summary-grid">
+                <div class="problem-box">
+                    <h4>🔴 O Problema</h4>
+                    <ul>
+                        <li>Equipamentos sem documentação técnica</li>
+                        <li>Fabricantes com atendimento ruim/custoso</li>
+                        <li>Produção parada = prejuízo direto</li>
+                        <li>Dependência total do fornecedor original</li>
+                    </ul>
                 </div>
-                <div class="card-content">
-                    <h3>Próximo Projeto</h3>
-                    <p class="card-summary">Em desenvolvimento...</p>
+                
+                <div class="solution-box">
+                    <h4>🔧 A Solução</h4>
+                    <ul>
+                        <li>Modelagem 3D das peças críticas</li>
+                        <li>Desenhos técnicos detalhados</li>
+                        <li>Documentação completa para usinagem</li>
+                        <li>Criação de banco de fornecedores</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <h4>✅ O Resultado</h4>
+                    <ul>
+                        <li><strong>Autonomia total</strong> para reposição</li>
+                        <li><strong>Múltiplos fornecedores</strong> disponíveis</li>
+                        <li><strong>Peças reserva</strong> em estoque</li>
+                        <li><strong>Zero dependência</strong> do fabricante</li>
+                    </ul>
                 </div>
             </div>
+        </div>
+
+        <div class="modal-cases">
+            <h3>Casos Documentados</h3>
+            
+            <!-- Caso 02.1 - Estampo -->
+            <div class="case-container">
+                <div class="case-header-sub">
+                    <h4>📐 Caso 02.1: Ferramenta de Estampo</h4>
+                    <p class="case-description">Punção de dobra quebrado - Produção parada até recuperação emergency</p>
+                </div>
+                
+                <div class="process-step">
+                    <h5>1. Situação Encontrada</h5>
+                    <div class="step-images">
+                        <img src="Portifolio_Caso.02/Imag.01-Caso_02.1.png" alt="Peça soldada - Vista 1">
+                        <img src="Portifolio_Caso.02/Imag.02-Caso_02.1.png" alt="Peça soldada - Vista 2">
+                    </div>
+                    <p><strong>Emergência:</strong> Peça recuperada com solda e ajustes para finalizar produção urgente. Sem documentação técnica para reposição futura.</p>
+                </div>
+
+                <div class="process-step">
+                    <h5>2. Modelagem 3D Executada</h5>
+                    <div class="step-images single">
+                        <img src="Portifolio_Caso.02/3D-Caso_02.1.png" alt="Modelo 3D do punção">
+                    </div>
+                    <p>Modelagem tridimensional precisa para envio a fornecedores de usinagem.</p>
+                </div>
+
+                <div class="process-step">
+                    <h5>3. Documentação Técnica</h5>
+                    <div class="step-images single">
+                        <img src="Portifolio_Caso.02/2D.Caso_02.1.PNG" alt="Desenho técnico 2D">
+                    </div>
+                    <p>Desenho técnico completo com cotas, tolerâncias e especificações para fabricação.</p>
+                </div>
+            </div>
+
+            <!-- Separador visual -->
+            <div class="case-separator"></div>
+
+            <!-- Caso 02.2 - Máquina -->
+            <div class="case-container">
+                <div class="case-header-sub">
+                    <h4>⚙️ Caso 02.2: Máquina Limpadora</h4>
+                    <p class="case-description">Componente simples mas crítico - Fabricante sem suporte adequado</p>
+                </div>
+                
+                <div class="process-step">
+                    <h5>1. Peça Quebrada</h5>
+                    <div class="step-images single">
+                        <img src="Portifolio_Caso.02/Imag.01-Caso_02.2.png" alt="Componente quebrado">
+                    </div>
+                    <p><strong>Problema:</strong> Fabricante queria envio de sub-montagem completa para outro estado. Custo e tempo inviáveis.</p>
+                </div>
+
+                <div class="process-step">
+                    <h5>2. Solução Usinada</h5>
+                    <div class="step-images single">
+                        <img src="Portifolio_Caso.02/Imag.02-Caso_02.2.png" alt="Peça usinada nova">
+                    </div>
+                    <p>Peça usinada localmente - produzimos 2 unidades (uso + reserva).</p>
+                </div>
+
+                <div class="process-step">
+                    <h5>3. Modelagem e Desenho</h5>
+                    <div class="step-images">
+                        <img src="Portifolio_Caso.02/3D-Caso_02.2.png" alt="Modelo 3D da peça">
+                        <img src="Portifolio_Caso.02/2D.Caso_02.2.PNG" alt="Desenho técnico">
+                    </div>
+                    <p>Documentação completa permitindo múltiplos orçamentos e fornecedores locais.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Equipamentos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Autonomia</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Fornecedores</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">0</span>
+                    <span class="stat-label">Dependência</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-cta">
+            <h3>Equipamentos sem documentação técnica?</h3>
+            <p>Criamos a documentação completa para sua autonomia produtiva</p>
+            <a href="#contact" class="btn-primary" onclick="closeModal('case2')">Solicitar Documentação</a>
+        </div>
+    </div>
+</div>
 
             <!-- Card do Caso 3 (Placeholder) -->
             <div class="portfolio-card coming-soon">

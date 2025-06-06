@@ -1210,3 +1210,114 @@ html {
         height: 35px;
     }
 }
+/* === CSS ADICIONAL PARA CASO 02 === */
+/* Adicionar no final do arquivo CSS existente */
+
+/* Container para casos múltiplos */
+.modal-cases {
+    padding: 2rem;
+    background: #f8f9fa;
+}
+
+.modal-cases h3 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #F66B0E;
+    padding-bottom: 1rem;
+}
+
+/* Container individual de cada caso */
+.case-container {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #F66B0E;
+}
+
+.case-header-sub {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.case-header-sub h4 {
+    color: #F66B0E;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.case-description {
+    color: #6c757d;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Separador visual entre casos */
+.case-separator {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #F66B0E, transparent);
+    margin: 3rem 0;
+    border-radius: 2px;
+}
+
+/* Substeps dentro de cada caso */
+.process-step h5 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: #e9ecef;
+    border-radius: 8px;
+    border-left: 3px solid #F66B0E;
+}
+
+/* Ajustes para imagens em casos múltiplos */
+.case-container .step-images {
+    margin-bottom: 1.5rem;
+}
+
+.case-container .step-images img {
+    border: 3px solid #e9ecef;
+    transition: border-color 0.3s ease;
+}
+
+.case-container .step-images img:hover {
+    border-color: #F66B0E;
+}
+
+/* Responsividade para casos múltiplos */
+@media (max-width: 768px) {
+    .modal-cases {
+        padding: 1.5rem;
+    }
+    
+    .case-container {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .case-header-sub h4 {
+        font-size: 1.2rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.3rem;
+    }
+    
+    .case-description {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    
+    .process-step h5 {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
