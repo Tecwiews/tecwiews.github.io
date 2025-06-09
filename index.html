@@ -165,10 +165,6 @@
                 </div>
             </div>
 
-            <!-- Card do Caso 2 (Placeholder para próximo caso) -->
-            <!-- SUBSTITUIR O CARD CASO 2 NO HTML EXISTENTE -->
-<!-- Localizar o card "coming-soon" do Caso 2 e substituir por este código: -->
-
 <!-- Card do Caso 2 - SUBSTITUIR O PLACEHOLDER -->
 <div class="portfolio-card" onclick="openModal('case2')">
     <div class="card-image">
@@ -344,22 +340,143 @@
     </div>
 </div>
 
-            <!-- Card do Caso 3 (Placeholder) -->
-            <div class="portfolio-card coming-soon">
-                <div class="card-image">
-                    <div class="coming-soon-content">
-                        <i class="icon">🔧</i>
-                        <h4>Novo Caso em Breve</h4>
-                        <p>Mais projetos sendo documentados</p>
-                    </div>
+<!-- MODAL DO CASO 3 -->
+<div id="case3Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('case3')">&times;</span>
+        
+        <div class="modal-header">
+            <h2>Presença Digital para Indústria</h2>
+            <div class="modal-tags">
+                <span class="tag">Site Profissional</span>
+                <span class="tag">Catálogo Digital</span>
+                <span class="tag">Documentação</span>
+                <span class="tag">Presença Digital</span>
+            </div>
+        </div>
+
+        <div class="modal-summary">
+            <div class="summary-grid">
+                <div class="problem-box">
+                    <h4>🔴 O Problema</h4>
+                    <ul>
+                        <li>Empresa sem presença digital</li>
+                        <li>Produtos sem catálogo técnico</li>
+                        <li>Vendas limitadas a indicações</li>
+                        <li>Processo manual de orçamentos</li>
+                    </ul>
                 </div>
-                <div class="card-content">
-                    <h3>Próximo Projeto</h3>
-                    <p class="card-summary">Em desenvolvimento...</p>
+                
+                <div class="solution-box">
+                    <h4>🔧 A Solução</h4>
+                    <ul>
+                        <li>Site profissional responsivo</li>
+                        <li>Catálogo técnico digital</li>
+                        <li>Formulários automatizados</li>
+                        <li>Documentação padronizada</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <h4>✅ O Resultado</h4>
+                    <ul>
+                        <li><strong>+40%</strong> redução no atendimento</li>
+                        <li><strong>+25%</strong> contatos qualificados</li>
+                        <li><strong>+60%</strong> organização produtos</li>
+                        <li><strong>+30%</strong> credibilidade</li>
+                    </ul>
                 </div>
             </div>
         </div>
+
+        <div class="modal-process">
+            <h3>O Projeto Desenvolvido</h3>
+            
+            <div class="process-step">
+                <h4>1. Site Profissional</h4>
+                <div class="step-images single">
+                    <img src="images/case03-homepage.jpg" alt="Homepage do site">
+                </div>
+                <p>Desenvolvimento de site responsivo com foco no público industrial, navegação intuitiva e design profissional.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>2. Catálogo Técnico Digital</h4>
+                <div class="step-images single">
+                    <img src="images/case03-catalog.jpg" alt="Catálogo técnico">
+                </div>
+                <p>Criação de catálogo interativo com especificações técnicas, tabelas de dimensões e materiais disponíveis.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>3. Documentação dos Produtos</h4>
+                <div class="step-images">
+                    <img src="images/case03-3d-model1.jpg" alt="Modelo 3D mola compressão">
+                    <img src="images/case03-3d-model2.jpg" alt="Modelo 3D mola tração">
+                </div>
+                <p>Modelagem 3D da linha de produtos e criação de fichas técnicas padronizadas para todos os itens.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>4. Sistema de Orçamentos</h4>
+                <div class="step-images single">
+                    <img src="images/case03-form.jpg" alt="Formulário de orçamento">
+                </div>
+                <p>Formulário estruturado para produtos personalizados com campos técnicos específicos e upload de arquivos.</p>
+            </div>
+        </div>
+
+        <div class="modal-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Redução atendimento</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25%</span>
+                    <span class="stat-label">Mais contatos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">60%</span>
+                    <span class="stat-label">Organização</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">30%</span>
+                    <span class="stat-label">Credibilidade</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-cta">
+            <h3>Precisa de presença digital para sua indústria?</h3>
+            <p>Criamos sites profissionais e catálogos técnicos que geram resultados</p>
+            <a href="#contact" class="btn-primary" onclick="closeModal('case3')">Solicitar Proposta</a>
+        </div>
     </div>
+</div>
+<!-- Card do Caso 3 -->
+<div class="portfolio-card" onclick="openModal('case3')">
+    <div class="card-image">
+        <img src="images/case03-site-mockup.jpg" alt="Site e Catálogo Digital - Fabricante de Molas">
+    </div>
+    <div class="card-content">
+        <h3>Presença Digital para Indústria</h3>
+        <p class="card-summary">Site profissional + catálogo técnico para fabricante de molas</p>
+        <div class="card-stats">
+            <span class="stat-item">
+                <strong>+40%</strong> redução atendimento
+            </span>
+            <span class="stat-item">
+                <strong>+25%</strong> contatos qualificados
+            </span>
+        </div>
+        <div class="card-tags">
+            <span class="tag">Site Profissional</span>
+            <span class="tag">Catálogo Digital</span>
+            <span class="tag">Presença Digital</span>
+        </div>
+    </div>
+</div>
 </section>
 
 <!-- MODAL DO CASO 1 -->
