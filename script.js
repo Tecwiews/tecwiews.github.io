@@ -552,3 +552,193 @@ if (typeof originalOpenModal === 'function') {
         }
     };
 }
+// ===============================================
+// INSTRUÇÕES DE IMPLEMENTAÇÃO JS - CASO 03
+// ===============================================
+
+// ADICIONAR NO FINAL DO ARQUIVO script.js
+// Copiar todo este código e colar no final do JavaScript existente
+
+// === JAVASCRIPT ESPECÍFICO PARA CASO 03 ===
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Melhorias específicas para o Caso 03
+    initCase03Enhancements();
+    
+    // Lazy loading para imagens do Caso 03
+    initLazyLoadingCase03();
+    
+    // Smooth scroll melhorado para modal longo
+    enhanceModalScrolling();
+});
+
+// Função para melhorias específicas do Caso 03
+function initCase03Enhancements() {
+    // Adicionar classe especial ao modal do Caso 3 quando aberto
+    const originalOpenModal = window.openModal;
+    
+    window.openModal = function(caseId) {
+        if (originalOpenModal) {
+            originalOpenModal(caseId);
+        } else {
+            // Fallback se função não existir
+            const modal = document.getElementById(caseId + 'Modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        // Adicionar classe especial para Caso 3
+        if (caseId === 'case3') {
+            const modal = document.getElementById('case3Modal');
+            if (modal) {
+                modal.classList.add('case3-active');
+                
+                // Iniciar animações das imagens
+                setTimeout(() => {
+                    animateCase03Images();
+                }, 300);
+            }
+        }
+        
+        // Analytics tracking (opcional)
+        trackPortfolioCase(caseId);
+    };
+}
+
+// Função para animar imagens do Caso 03
+function animateCase03Images() {
+    const case3Images = document.querySelectorAll('#case3Modal .process-step img');
+    
+    case3Images.forEach((img, index) => {
+        setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+}
+
+// Lazy loading específico para Caso 03
+function initLazyLoadingCase03() {
+    // Observer para carregar imagens apenas quando necessário
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                }
+            });
+        });
+
+        // Observar imagens do Caso 03
+        const case3LazyImages = document.querySelectorAll('#case3Modal img.lazy');
+        case3LazyImages.forEach(img => imageObserver.observe(img));
+    }
+}
+
+// Melhorar scroll em modais longos
+function enhanceModalScrolling() {
+    const modals = document.querySelectorAll('.modal');
+    
+    modals.forEach(modal => {
+        modal.addEventListener('scroll', function(e) {
+            // Adicionar sombra no header quando rolar
+            const modalContent = this.querySelector('.modal-content');
+            const modalHeader = this.querySelector('.modal-header');
+            
+            if (modalContent && modalHeader) {
+                if (modalContent.scrollTop > 50) {
+                    modalHeader.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else {
+                    modalHeader.style.boxShadow = 'none';
+                }
+            }
+        });
+    });
+}
+
+// Função para tracking de analytics (opcional)
+function trackPortfolioCase(caseId) {
+    // Registrar visualização do case para futuras análises
+    console.log(`Case ${caseId} visualizado em:`, new Date().toISOString());
+    
+    // Aqui pode integrar com Google Analytics, Facebook Pixel, etc.
+    // Exemplo para Google Analytics 4:
+    // gtag('event', 'portfolio_view', {
+    //     case_id: caseId,
+    //     timestamp: Date.now()
+    // });
+    
+    // Exemplo para Facebook Pixel:
+    // fbq('track', 'ViewContent', {
+    //     content_name: `Portfolio Case ${caseId}`,
+    //     content_category: 'Portfolio'
+    // });
+}
+
+// Função para melhorar performance em dispositivos móveis
+function optimizeForMobile() {
+    // Detectar dispositivos móveis
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Reduzir qualidade de animações em mobile
+        const style = document.createElement('style');
+        style.textContent = `
+            .process-step img {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Inicializar otimizações móveis
+window.addEventListener('resize', optimizeForMobile);
+optimizeForMobile();
+
+// Função para fechar modal com melhorias
+const originalCloseModal = window.closeModal;
+window.closeModal = function(caseId) {
+    const modal = document.getElementById(caseId + 'Modal');
+    if (modal) {
+        // Remover classe especial do Caso 3
+        if (caseId === 'case3') {
+            modal.classList.remove('case3-active');
+        }
+        
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Reset scroll position
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
+    }
+};
+
+// Adicionar smooth scroll para links internos do modal
+document.addEventListener('click', function(e) {
+    if (e.target.matches('a[href^="#"]')) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+});

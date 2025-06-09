@@ -1321,3 +1321,149 @@ html {
         text-align: center;
     }
 }
+/* =============================================== */
+/* INSTRUÇÕES DE IMPLEMENTAÇÃO CSS - CASO 03      */
+/* =============================================== */
+
+/* ADICIONAR NO FINAL DO ARQUIVO style.css */
+/* Copiar todo este código e colar no final do CSS existente */
+
+/* === CSS ESPECÍFICO PARA CASO 03 === */
+
+/* Melhorias para modal com mais conteúdo */
+.modal-process {
+    padding: 2rem;
+    background: #f8f9fa;
+}
+
+.modal-process h3 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #F66B0E;
+    padding-bottom: 1rem;
+}
+
+/* Estilo para steps do processo */
+.process-step {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #F66B0E;
+}
+
+.process-step h4 {
+    color: #F66B0E;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.process-step p {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+/* Ajustes para imagens do Caso 03 */
+.case3-images .step-images {
+    margin-bottom: 1.5rem;
+}
+
+.case3-images .step-images img {
+    border: 3px solid #e9ecef;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.case3-images .step-images img:hover {
+    border-color: #F66B0E;
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(246, 107, 14, 0.2);
+}
+
+/* Estilo especial para modelos 3D */
+.model-3d-showcase .step-images img {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+/* Melhorias na responsividade para Caso 03 */
+@media (max-width: 768px) {
+    .modal-process {
+        padding: 1.5rem;
+    }
+    
+    .process-step {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .process-step h4 {
+        font-size: 1.1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.3rem;
+    }
+    
+    .process-step p {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animação suave para carregamento das imagens */
+.process-step img {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.process-step:nth-child(1) img { animation-delay: 0.1s; }
+.process-step:nth-child(2) img { animation-delay: 0.2s; }
+.process-step:nth-child(3) img { animation-delay: 0.3s; }
+.process-step:nth-child(4) img { animation-delay: 0.4s; }
+.process-step:nth-child(5) img { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Melhoria para scroll em modais longos */
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #F66B0E #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #F66B0E;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #e55a00;
+}
