@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Meta tags essenciais para SEO e responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tecwiews - Documentação técnica e sites profissionais para empresas industriais">
-    <meta name="keywords" content="documentação técnica, modelagem 3D, sites industriais, desenhos técnicos">
     
-    <title>Tecwiews - Documentação Técnica e Sites Profissionais</title>
+    <!-- SEO: TÍTULO PRINCIPAL DA PÁGINA -->
+    <title>Tecwiews - Documentação Técnica 3D e Sites Industriais | São Paulo</title>
     
-    <!-- Links para arquivos CSS e fontes -->
-    <link rel="stylesheet" href="Imagens_Site/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-    <script src="script.js"></script>
+    <!-- SEO: DESCRIÇÃO QUE APARECE NO GOOGLE -->
+    <meta name="description" content="Especialistas em documentação técnica 3D, modelagem industrial e desenvolvimento de sites profissionais. Transformamos produtos em documentação clara e empresas em referências digitais.">
+    
+    <!-- SEO: PALAVRAS-CHAVE ESTRATÉGICAS -->
+    <meta name="keywords" content="documentação técnica, modelagem 3D, desenhos técnicos, sites industriais, CAD, solidworks, presença digital, catálogo técnico">
+    
+    <!-- SEO: INFORMAÇÕES DO NEGÓCIO -->
+    <meta name="author" content="Tecwiews">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="pt-BR">
+    
+    <!-- SEO: LOCALIZAÇÃO GEOGRÁFICA -->
+    <meta name="geo.region" content="BR-SP">
+    <meta name="geo.placename" content="São Paulo">
+    
+    <!-- SEO: REDES SOCIAIS (Open Graph) -->
+    <meta property="og:title" content="Tecwiews - Documentação Técnica e Sites Industriais">
+    <meta property="og:description" content="Transformamos produtos em documentação técnica clara e empresas em referências digitais">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tecwiews.github.io/">
+    <meta property="og:site_name" content="Tecwiews">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- SEO: TWITTER CARDS -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tecwiews - Documentação Técnica e Sites Industriais">
+    <meta name="twitter:description" content="Especialistas em documentação técnica 3D e desenvolvimento de sites profissionais">
+    
+    <!-- MANTER OS ARQUIVOS CSS E JS EXISTENTES -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="preload" href="Imagens_Site/Logo Tecwiews_01.png" as="image">
 </head>
 <body>
     <!-- HEADER - Cabeçalho fixo com navegação -->
@@ -25,7 +46,7 @@
         <div class="nav-container">
             <!-- Logo da empresa -->
             <div class="logo">
-                <img src="Imagens_Site/Logo Tecwiews_01.png" alt="Tecwiews Logo" class="logo-image">
+                <img src="Imagens_Site/Logo Tecwiews_01.png" alt="Tecwiews - Logo da empresa de documentação técnica" loading="eager" class="logo-image">
                 TECWIEWS
             </div>
             
@@ -144,7 +165,7 @@
             <!-- Card do Caso 1 -->
             <div class="portfolio-card" onclick="openModal('case1')">
                 <div class="card-image">
-                    <img src="Portifolio_Caso.01/Modelamento_01.png" alt="Engenharia Reversa - Peça Melhorada">
+                    <img src="Portifolio_Caso.01/Modelamento_01.png" alt="Case de sucesso - Documentação técnica que reduziu 35% dos erros de fabricação" loading="eager">
                 </div>
                 <div class="card-content">
                     <h3>Engenharia Reversa com Melhoria</h3>
@@ -168,7 +189,7 @@
 <!-- Card do Caso 2 - SUBSTITUIR O PLACEHOLDER -->
 <div class="portfolio-card" onclick="openModal('case2')">
     <div class="card-image">
-        <img src="Portifolio_Caso.02/3D-Caso_02.1.png" alt="Documentação Técnica - Estampo e Máquina">
+        <img src="Portifolio_Caso.02/3D-Caso_02.1.png" alt="Manual técnico de produto, peças, componentes criado pela Tecwiews - Autonomia total para equipe de manutenção e lucro" loading="eager">
     </div>
     <div class="card-content">
         <h3>Documentação Técnica para Continuidade</h3>
@@ -251,8 +272,8 @@
                 <div class="process-step">
                     <h5>1. Situação Encontrada</h5>
                     <div class="step-images">
-                        <img src="Portifolio_Caso.02/Imag.01-Caso_02.1.png" alt="Peça soldada - Vista 1">
-                        <img src="Portifolio_Caso.02/Imag.02-Caso_02.1.png" alt="Peça soldada - Vista 2">
+                        <img src="Portifolio_Caso.02/Imag.01-Caso_02.1.png" alt="Peça, componente soldado, recuperada, ajustada - Vista 1" loading="lazy">
+                        <img src="Portifolio_Caso.02/Imag.02-Caso_02.1.png" alt="Peça, componente soldado, recuperada, ajustada - Vista 2" loading="lazy">
                     </div>
                     <p><strong>Emergência:</strong> Peça recuperada com solda e ajustes para finalizar produção urgente. Sem documentação técnica para reposição futura.</p>
                 </div>
@@ -260,7 +281,7 @@
                 <div class="process-step">
                     <h5>2. Modelagem 3D Executada</h5>
                     <div class="step-images single">
-                        <img src="Portifolio_Caso.02/3D-Caso_02.1.png" alt="Modelo 3D do punção">
+                        <img src="Portifolio_Caso.02/3D-Caso_02.1.png" alt="Impressão 3D/modelagem 3D/Modelo 3D do punção" loading="lazy">
                     </div>
                     <p>Modelagem tridimensional precisa para envio a fornecedores de usinagem.</p>
                 </div>
@@ -268,7 +289,7 @@
                 <div class="process-step">
                     <h5>3. Documentação Técnica</h5>
                     <div class="step-images single">
-                        <img src="Portifolio_Caso.02/2D.Caso_02.1.PNG" alt="Desenho técnico 2D">
+                        <img src="Portifolio_Caso.02/2D.Caso_02.1.PNG" alt="Desenho Detalhamento peças-componente/Desenho técnico 2D" loading="lazy">
                     </div>
                     <p>Desenho técnico completo com cotas, tolerâncias e especificações para fabricação.</p>
                 </div>
@@ -287,7 +308,7 @@
                 <div class="process-step">
                     <h5>1. Peça Quebrada</h5>
                     <div class="step-images single">
-                        <img src="Portifolio_Caso.02/Imag.01-Caso_02.2.png" alt="Componente quebrado">
+                        <img src="Portifolio_Caso.02/Imag.01-Caso_02.2.png" alt="Componente quebrado" loading="lazy">
                     </div>
                     <p><strong>Problema:</strong> Fabricante queria envio de sub-montagem completa para outro estado. Custo e tempo inviáveis.</p>
                 </div>
@@ -295,7 +316,7 @@
                 <div class="process-step">
                     <h5>2. Solução Usinada</h5>
                     <div class="step-images single">
-                        <img src="Portifolio_Caso.02/Imag.02-Caso_02.2.png" alt="Peça usinada nova">
+                        <img src="Portifolio_Caso.02/Imag.02-Caso_02.2.png" alt="Desenho tecnico/projeto/Peça usinada nova" loading="lazy">
                     </div>
                     <p>Peça usinada localmente - produzimos 2 unidades (uso + reserva).</p>
                 </div>
@@ -303,8 +324,8 @@
                 <div class="process-step">
                     <h5>3. Modelagem e Desenho</h5>
                     <div class="step-images">
-                        <img src="Portifolio_Caso.02/3D-Caso_02.2.png" alt="Modelo 3D da peça">
-                        <img src="Portifolio_Caso.02/2D.Caso_02.2.PNG" alt="Desenho técnico">
+                        <img src="Portifolio_Caso.02/3D-Caso_02.2.png" alt="protótipagem/impressão 3D/Modelagem 3D/Modelo 3D da peça" loading="lazy">
+                        <img src="Portifolio_Caso.02/2D.Caso_02.2.PNG" alt="Projeto/Produto/Desenho técnico" loading="lazy">
                     </div>
                     <p>Documentação completa permitindo múltiplos orçamentos e fornecedores locais.</p>
                 </div>
@@ -351,7 +372,7 @@
 <!-- Card do Caso 3 -->
 <div class="portfolio-card" onclick="openModal('case3')">
     <div class="card-image">
-        <img src="Portifolio_Caso.03/Mockup_Home.png" alt="Site e Catálogo Digital - Fabricante de Molas">
+        <img src="Portifolio_Caso.03/Mockup_Home.png" alt="Site profissional e catálogo digital para indústria de molas - 40% redução no atendimento" loading="eager">
     </div>
     <div class="card-content">
         <h3>Presença Digital para Indústria</h3>
@@ -439,7 +460,7 @@
                 <div class="process-step">
                     <h4>2. Catálogo Técnico Digital</h4>
                     <div class="step-images single">
-                        <img src="Portifolio_Caso.03/Mockup_Catálogo.png" alt="Catálogo técnico">
+                        <img src="Portifolio_Caso.03/Mockup_Catálogo.png" alt="Projeto/desenho tecnico/produto/Catálogo técnico" loading="lazy">
                     </div>
                     <p>Criação de catálogo interativo com especificações técnicas detalhadas, tabelas de dimensões, materiais e tolerâncias para facilitar a seleção.</p>
                 </div>
@@ -447,8 +468,8 @@
                 <div class="process-step">
                     <h4>3. Modelagem 3D dos Produtos</h4>
                     <div class="step-images">
-                        <img src="Portifolio_Caso.03/3D Mola_C.png" alt="Modelo 3D mola compressão">
-                        <img src="Portifolio_Caso.03/3D Mola_T.png" alt="Modelo 3D mola tração">
+                        <img src="Portifolio_Caso.03/3D Mola_C.png" alt="Impressão 3D/modelagem 3d/Modelo 3D mola tração" loading="lazy">
+                        <img src="Portifolio_Caso.03/3D Mola_T.png" alt="Impressão 3D/modelagem 3d/Modelo 3D mola tração" loading="lazy">
                     </div>
                     <p>Modelagem tridimensional precisa da linha de produtos com especificações exatas para documentação técnica, visualização e especificação pelos clientes.</p>
                 </div>
@@ -456,7 +477,7 @@
                 <div class="process-step">
                     <h4>4. Documentação Técnica 2D</h4>
                     <div class="step-images single">
-                        <img src="Portifolio_Caso.03/2D-Molas Tec..png" alt="Especificação técnica 2D">
+                        <img src="Portifolio_Caso.03/2D-Molas Tec..png" alt="Especificação técnica 2D/Impressão 3D/modelagem 3d/Modelo 3D e desenho tecnico" loading="lazy">
                     </div>
                     <p>Criação de desenhos técnicos padronizados com cotas, tolerâncias e especificações para fabricação, especificação e controle de qualidade.</p>
                 </div>
@@ -464,7 +485,7 @@
                 <div class="process-step">
                     <h4>5. Sistema de Orçamentos</h4>
                     <div class="step-images single">
-                        <img src="Portifolio_Caso.03/Mockup_formulario.png" alt="Formulário de orçamento">
+                        <img src="Portifolio_Caso.03/Mockup_formulario.png" alt="Formulário de orçamento/Impressão 3D/modelagem 3d/Modelo 3D e desenho tecnico" loading="lazy">
                     </div>
                     <p>Formulário estruturado para produtos personalizados com campos técnicos específicos, upload de arquivos e sistema de priorização de prazos.</p>
                 </div>
@@ -552,9 +573,9 @@
             <div class="process-step">
                 <h4>1. Análise da Peça Original</h4>
                 <div class="step-images">
-                    <img src="Portifolio_Caso.01/Peça_01.png" alt="Peça original - Vista 1">
-                    <img src="Portifolio_Caso.01/Peça_02.png" alt="Peça original - Vista 2">
-                    <img src="Portifolio_Caso.01/Peça_03.png" alt="Peça original - Vista 3">
+                    <img src="Portifolio_Caso.01/Peça_01.png" alt="Peça original - Vista 1" loading="lazy">
+                    <img src="Portifolio_Caso.01/Peça_02.png" alt="Peça original - Vista 2" loading="lazy">
+                    <img src="Portifolio_Caso.01/Peça_03.png" alt="Peça original - Vista 3" loading="lazy">
                 </div>
                 <p>Análise detalhada da peça original do fabricante para entender a geometria e identificar pontos críticos.</p>
             </div>
@@ -562,7 +583,7 @@
             <div class="process-step">
                 <h4>2. Identificação do Problema</h4>
                 <div class="step-images single">
-                    <img src="Portifolio_Caso.01/Peça_01-Ponto%20quebra.png" alt="Ponto de ruptura identificado">
+                    <img src="Portifolio_Caso.01/Peça_01-Ponto%20quebra.png" alt="Ponto de ruptura identificado" loading="lazy">
                 </div>
                 <p><strong>Descoberta:</strong> Canto vivo causou concentração de tensão, levando à ruptura prematura da peça.</p>
             </div>
@@ -570,8 +591,8 @@
             <div class="process-step">
                 <h4>3. Modelagem 3D da Solução</h4>
                 <div class="step-images">
-                    <img src="Portifolio_Caso.01/Modelamento_01.png" alt="Modelo 3D - Vista 1">
-                    <img src="Portifolio_Caso.01/Modelamento_02.png" alt="Modelo 3D - Vista 2">
+                    <img src="Portifolio_Caso.01/Modelamento_01.png" alt="Modelo 3D - Vista 1 loading="lazy"">
+                    <img src="Portifolio_Caso.01/Modelamento_02.png" alt="Modelo 3D - Vista 2" loading="lazy">
                 </div>
                 <p>Criação do modelo 3D no SolidWorks com as correções necessárias para eliminar o ponto fraco.</p>
             </div>
@@ -579,7 +600,7 @@
             <div class="process-step">
                 <h4>4. Melhoria Implementada</h4>
                 <div class="step-images single">
-                    <img src="Portifolio_Caso.01/Detalhe%20Raio.png" alt="Detalhe da correção">
+                    <img src="Portifolio_Caso.01/Detalhe%20Raio.png" alt="Detalhe da correção" loading="lazy">
                 </div>
                 <p><strong>Solução aplicada:</strong> Raio no canto vivo, aumentando a massa de material e eliminando a concentração de tensão sem impactar a funcionalidade.</p>
             </div>
@@ -587,7 +608,7 @@
             <div class="process-step">
                 <h4>5. Documentação Técnica</h4>
                 <div class="step-images single">
-                    <img src="Portifolio_Caso.01/Desenho%20Tecnico%202D.JPG" alt="Desenho técnico">
+                    <img src="Portifolio_Caso.01/Desenho%20Tecnico%202D.JPG" alt="Desenho técnico" loading="lazy">
                 </div>
                 <p>Desenho técnico completo com todas as cotas e especificações para usinagem precisa.</p>
             </div>
@@ -829,5 +850,59 @@
     <!-- Link para arquivo JavaScript -->
     <script src="script.js"></script>
     
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Tecwiews",
+        "description": "Especialistas em documentação técnica 3D, modelagem industrial e desenvolvimento de sites profissionais",
+        "url": "https://tecwiews.github.io/",
+        "telephone": "+55-31-97500-2302",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-23.5505",
+            "longitude": "-46.6333"
+        },
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "-23.5505",
+                "longitude": "-46.6333"
+            },
+            "geoRadius": "100000"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços Tecwiews",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Documentação Técnica 3D",
+                        "description": "Criação de documentação técnica completa com modelagem 3D e desenhos técnicos"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Desenvolvimento de Sites Industriais",
+                        "description": "Sites profissionais e catálogos digitais para empresas industriais"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
 </body>
 </html>

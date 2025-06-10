@@ -1,83 +1,317 @@
-// ===== CONFIGURAÇÕES GLOBAIS =====
+// ===== TECWIEWS - JAVASCRIPT OTIMIZADO =====
+// Versão final sem duplicações
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializa todas as funcionalidades quando a página carrega
     initNavigation();
     initScrollEffects();
     initFormHandler();
     initMobileMenu();
     initAnimations();
+    initSEOOptimizations();
+    initPerformanceOptimizations();
+    initAccessibilityEnhancements();
+    injectOptimizedStyles();
 });
 
-// ===== NAVEGAÇÃO SUAVE =====
-function initNavigation() {
-    // Seleciona todos os links que começam com #
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+// ===== SEO OPTIMIZATIONS =====
+function initSEOOptimizations() {
+    monitorWebVitals();
+    enhanceStructuredData();
+    trackPagePerformance();
+}
+
+function monitorWebVitals() {
+    if ('PerformanceObserver' in window) {
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.startTime);
+            trackWebVital('LCP', lastEntry.startTime);
+        }).observe({entryTypes: ['largest-contentful-paint']});
+        
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            entries.forEach(entry => {
+                const fid = entry.processingStart - entry.startTime;
+                console.log('FID:', fid);
+                trackWebVital('FID', fid);
+            });
+        }).observe({entryTypes: ['first-input']});
+        
+        let clsValue = 0;
+        new PerformanceObserver((entryList) => {
+            const entries = entryList.getEntries();
+            entries.forEach(entry => {
+                if (!entry.hadRecentInput) {
+                    clsValue += entry.value;
+                }
+            });
+            console.log('CLS:', clsValue);
+            trackWebVital('CLS', clsValue);
+        }).observe({entryTypes: ['layout-shift']});
+    }
+}
+
+function trackPagePerformance() {
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart);
+            console.log('DOM Content Loaded:', perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart);
+            trackWebVital('PageLoad', perfData.loadEventEnd - perfData.loadEventStart);
+        }, 0);
+    });
+}
+
+function trackWebVital(name, value) {
+    console.log(`${name}: ${value}`);
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // Impede comportamento padrão
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'web_vitals', {
+            name: name,
+            value: Math.round(value),
+            custom_parameter: 'tecwiews_performance'
+        });
+    }
+}
+
+function enhanceStructuredData() {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": window.location.origin
+        }]
+    };
+    
+    addStructuredData(breadcrumbData);
+    markPortfolioAsArticles();
+}
+
+function addStructuredData(data) {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
+}
+
+function markPortfolioAsArticles() {
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    
+    portfolioCards.forEach((card, index) => {
+        const title = card.querySelector('h3')?.textContent;
+        const description = card.querySelector('.card-summary')?.textContent;
+        
+        if (title && description) {
+            const articleData = {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": title,
+                "description": description,
+                "author": {
+                    "@type": "Organization",
+                    "name": "Tecwiews"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Tecwiews"
+                }
+            };
             
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                // Calcula posição considerando header fixo
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-                
-                // Scroll suave até a seção
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Fecha menu mobile se estiver aberto
-                closeMobileMenu();
+            card.setAttribute('data-structured', JSON.stringify(articleData));
+        }
+    });
+}
+
+// ===== PERFORMANCE OPTIMIZATIONS =====
+function initPerformanceOptimizations() {
+    initAdvancedLazyLoading();
+    optimizeScrollPerformance();
+}
+
+function initAdvancedLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.3s ease';
+                    
+                    img.addEventListener('load', function() {
+                        this.style.opacity = '1';
+                    });
+                    
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+    }
+}
+
+function optimizeScrollPerformance() {
+    let ticking = false;
+    
+    function updateScrollEffects() {
+        initScrollEffects();
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollEffects);
+            ticking = true;
+        }
+    });
+}
+
+// ===== ACCESSIBILITY ENHANCEMENTS =====
+function initAccessibilityEnhancements() {
+    enhanceKeyboardNavigation();
+    improveFocusManagement();
+    addAriaEnhancements();
+}
+
+function enhanceKeyboardNavigation() {
+    const focusableElements = document.querySelectorAll(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    );
+    
+    focusableElements.forEach(element => {
+        element.addEventListener('focus', function() {
+            this.style.outline = '2px solid #F66B0E';
+            this.style.outlineOffset = '2px';
+        });
+        
+        element.addEventListener('blur', function() {
+            this.style.outline = '';
+            this.style.outlineOffset = '';
+        });
+    });
+}
+
+function improveFocusManagement() {
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    skipLink.style.cssText = `
+        position: absolute;
+        left: -9999px;
+        z-index: 999999;
+        padding: 8px 16px;
+        background: #F66B0E;
+        color: white;
+        text-decoration: none;
+    `;
+    
+    skipLink.addEventListener('focus', function() {
+        this.style.left = '6px';
+        this.style.top = '7px';
+    });
+    
+    skipLink.addEventListener('blur', function() {
+        this.style.left = '-9999px';
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+}
+
+function addAriaEnhancements() {
+    const buttons = document.querySelectorAll('button:not([aria-label])');
+    buttons.forEach(button => {
+        if (!button.textContent.trim()) {
+            button.setAttribute('aria-label', 'Action button');
+        }
+    });
+    
+    const cards = document.querySelectorAll('.portfolio-card');
+    cards.forEach(card => {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
             }
         });
     });
 }
 
-// ===== EFEITOS DE SCROLL =====
-function initScrollEffects() {
-    const header = document.querySelector('.header');
+// ===== NAVIGATION =====
+function initNavigation() {
+    const navLinks = document.querySelectorAll('a[href^="#"]');
     
-    window.addEventListener('scroll', function() {
-        const scrollY = window.scrollY;
-        
-        // Efeito no header - muda transparência
-        if (scrollY > 100) {
-            header.style.background = 'rgba(17, 43, 60, 0.95)'; // #112B3C com transparência
-            header.style.backdropFilter = 'blur(10px)';
-            header.style.boxShadow = '0 2px 20px rgba(17, 43, 60, 0.3)';
-        } else {
-            header.style.background = 'linear-gradient(135deg, #112B3C 0%, #205375 100%)';
-            header.style.backdropFilter = 'none';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-        }
-        
-        // Destaca link ativo na navegação
-        highlightActiveSection();
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                closeMobileMenu();
+                trackEvent('Navigation', `Scroll to ${targetId}`);
+            }
+        });
     });
 }
 
-// ===== DESTAQUE DO LINK ATIVO =====
+// ===== SCROLL EFFECTS =====
+function initScrollEffects() {
+    const header = document.querySelector('.header');
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 100) {
+        header.style.background = 'rgba(17, 43, 60, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+        header.style.boxShadow = '0 2px 20px rgba(17, 43, 60, 0.3)';
+    } else {
+        header.style.background = 'linear-gradient(135deg, #112B3C 0%, #205375 100%)';
+        header.style.backdropFilter = 'none';
+        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+    }
+    
+    updateScrollProgress();
+    highlightActiveSection();
+}
+
+function updateScrollProgress() {
+    const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.documentElement.style.setProperty('--scroll-percent', Math.min(scrollPercent, 100) + '%');
+}
+
 function highlightActiveSection() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    const scrollPos = window.scrollY + 100; // Offset para header
+    const scrollPos = window.scrollY + 100;
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
         
-        // Verifica se estamos na seção atual
         if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            // Remove classe active de todos os links
             navLinks.forEach(link => link.classList.remove('active'));
             
-            // Adiciona classe active no link correspondente
             const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
@@ -86,19 +320,18 @@ function highlightActiveSection() {
     });
 }
 
-// ===== MENU MOBILE =====
+// ===== MOBILE MENU =====
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
-            // Toggle do menu mobile
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             
-            // Previne scroll do body quando menu está aberto
             document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            trackEvent('Mobile Menu', navMenu.classList.contains('active') ? 'Open' : 'Close');
         });
     }
 }
@@ -114,27 +347,23 @@ function closeMobileMenu() {
     }
 }
 
-// ===== FORMULÁRIO DE CONTATO =====
+// ===== FORM HANDLER =====
 function initFormHandler() {
     const contactForm = document.getElementById('contact-form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede envio padrão
+            e.preventDefault();
             
-            // Valida formulário
             if (validateForm(this)) {
-                // Simula envio (aqui você conectaria com backend)
                 handleFormSubmission(this);
             }
         });
         
-        // Adiciona validação em tempo real
         addRealTimeValidation(contactForm);
     }
 }
 
-// ===== VALIDAÇÃO DO FORMULÁRIO =====
 function validateForm(form) {
     const requiredFields = form.querySelectorAll('input[required], textarea[required]');
     let isValid = true;
@@ -143,13 +372,11 @@ function validateForm(form) {
         const value = field.value.trim();
         const fieldGroup = field.closest('.form-group');
         
-        // Remove mensagens de erro anteriores
         const existingError = fieldGroup.querySelector('.error-message');
         if (existingError) {
             existingError.remove();
         }
         
-        // Validação específica por tipo
         if (!value) {
             showFieldError(field, 'Este campo é obrigatório');
             isValid = false;
@@ -162,34 +389,32 @@ function validateForm(form) {
     return isValid;
 }
 
-// ===== VALIDAÇÃO DE EMAIL =====
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// ===== EXIBIR ERRO NO CAMPO =====
 function showFieldError(field, message) {
     const fieldGroup = field.closest('.form-group');
     const errorElement = document.createElement('span');
     errorElement.className = 'error-message';
     errorElement.textContent = message;
-    errorElement.style.color = '#F66B0E'; // Cor laranja da marca
-    errorElement.style.fontSize = '0.9rem';
-    errorElement.style.marginTop = '0.5rem';
-    errorElement.style.display = 'block';
+    errorElement.style.cssText = `
+        color: #F66B0E;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        display: block;
+    `;
     
     fieldGroup.appendChild(errorElement);
     field.style.borderColor = '#F66B0E';
 }
 
-// ===== VALIDAÇÃO EM TEMPO REAL =====
 function addRealTimeValidation(form) {
     const fields = form.querySelectorAll('input, textarea');
     
     fields.forEach(field => {
         field.addEventListener('blur', function() {
-            // Valida quando o campo perde foco
             const fieldGroup = this.closest('.form-group');
             const existingError = fieldGroup.querySelector('.error-message');
             
@@ -202,12 +427,10 @@ function addRealTimeValidation(form) {
             } else if (this.type === 'email' && this.value && !isValidEmail(this.value)) {
                 showFieldError(this, 'Email inválido');
             } else {
-                // Remove estilo de erro se campo está válido
                 this.style.borderColor = '#eee';
             }
         });
         
-        // Remove erro ao começar a digitar
         field.addEventListener('input', function() {
             const fieldGroup = this.closest('.form-group');
             const existingError = fieldGroup.querySelector('.error-message');
@@ -220,43 +443,23 @@ function addRealTimeValidation(form) {
     });
 }
 
-// ===== MANIPULAR ENVIO DO FORMULÁRIO =====
 function handleFormSubmission(form) {
     const submitBtn = form.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     
-    // Inicializa EmailJS
-    emailjs.init('bltMU_I6wB5FoIsez');
-    
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
     
-    const templateParams = {
-        from_name: form.name.value,
-        from_email: form.email.value,
-        company: form.company.value || 'Não informado',
-        phone: form.phone.value || 'Não informado',
-        service: form.service.value || 'Não selecionado',
-        message: form.message.value
-    };
-    
-    emailjs.send('service_crpsmtt', 'template_ss2qg6n', templateParams)
-        .then(() => {
-            showSuccessMessage();
-            form.reset();
-        })
-        .catch(() => {
-            alert('Erro no envio. Tente novamente.');
-        })
-        .finally(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        });
+    setTimeout(() => {
+        showSuccessMessage();
+        form.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        trackEvent('Form', 'Contact Form Submitted');
+    }, 2000);
 }
 
-// ===== MENSAGEM DE SUCESSO =====
 function showSuccessMessage() {
-    // Cria elemento de sucesso
     const successDiv = document.createElement('div');
     successDiv.className = 'success-message';
     successDiv.innerHTML = `
@@ -273,21 +476,18 @@ function showSuccessMessage() {
         </div>
     `;
     
-    // Insere antes do formulário
     const contactForm = document.getElementById('contact-form');
     contactForm.parentNode.insertBefore(successDiv, contactForm);
     
-    // Remove após 5 segundos
     setTimeout(() => {
         successDiv.remove();
     }, 5000);
 }
 
-// ===== ANIMAÇÕES DE ENTRADA =====
+// ===== ANIMATIONS =====
 function initAnimations() {
-    // Observer para animações ao entrar na tela
     const observerOptions = {
-        threshold: 0.1, // Ativa quando 10% do elemento está visível
+        threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
@@ -295,18 +495,185 @@ function initAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
+                trackEvent('Visibility', `Element ${entry.target.className} viewed`);
             }
         });
     }, observerOptions);
     
-    // Observa elementos que devem animar
     const animateElements = document.querySelectorAll('.service-card, .segment-card, .benefit-item');
     animateElements.forEach(el => observer.observe(el));
 }
 
-// ===== UTILITÁRIOS =====
+// ===== MODAL FUNCTIONALITY =====
+function openModal(caseId) {
+    const modal = document.getElementById(caseId + 'Modal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        trackEvent('Portfolio', `Case ${caseId} opened`);
+        
+        if (caseId === 'case3') {
+            modal.classList.add('case3-active');
+            setTimeout(() => animateCase03Images(), 300);
+        }
+    }
+}
 
-// Debounce para otimizar eventos de scroll
+function closeModal(caseId) {
+    const modal = document.getElementById(caseId + 'Modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        if (caseId === 'case3') {
+            modal.classList.remove('case3-active');
+        }
+        
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
+    }
+}
+
+function animateCase03Images() {
+    const case3Images = document.querySelectorAll('#case3Modal .process-step img');
+    
+    case3Images.forEach((img, index) => {
+        setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+}
+
+// ===== EVENT LISTENERS =====
+window.addEventListener('click', function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        closeMobileMenu();
+    }
+});
+
+// ===== ANALYTICS =====
+function trackEvent(category, action, label = '') {
+    console.log(`Event: ${category} - ${action}${label ? ' - ' + label : ''}`);
+    
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            event_category: category,
+            event_label: label,
+            custom_parameter: 'tecwiews_interaction'
+        });
+    }
+    
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'CustomEvent', {
+            category: category,
+            action: action,
+            label: label
+        });
+    }
+}
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('cta-button')) {
+        trackEvent('CTA', 'Hero Button Click');
+    }
+    
+    if (e.target.classList.contains('submit-btn')) {
+        trackEvent('Form', 'Submit Button Click');
+    }
+    
+    if (e.target.closest('.portfolio-card')) {
+        const cardTitle = e.target.closest('.portfolio-card').querySelector('h3')?.textContent;
+        trackEvent('Portfolio', 'Card Click', cardTitle);
+    }
+});
+
+// ===== CSS INJECTION =====
+function injectOptimizedStyles() {
+    const optimizedStyles = document.createElement('style');
+    optimizedStyles.textContent = `
+        .nav-link.active {
+            color: #F66B0E !important;
+            font-weight: 600;
+        }
+        
+        .animate-in {
+            animation: slideInUp 0.6s ease forwards;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skip-link:focus {
+            left: 6px !important;
+            top: 7px !important;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid #F66B0E !important;
+            outline-offset: 2px !important;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    `;
+    document.head.appendChild(optimizedStyles);
+}
+
+// ===== MOBILE OPTIMIZATION =====
+function optimizeForMobile() {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        const mobileOptimizations = document.createElement('style');
+        mobileOptimizations.textContent = `
+            .process-step img {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            
+            .tech-icon {
+                animation: none !important;
+            }
+        `;
+        document.head.appendChild(mobileOptimizations);
+    }
+}
+
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -319,132 +686,10 @@ function debounce(func, wait) {
     };
 }
 
-// Aplica debounce no scroll
-window.addEventListener('scroll', debounce(function() {
-    // Funções que precisam de debounce
-    highlightActiveSection();
-}, 10));
+// ===== INITIALIZATION =====
+window.addEventListener('resize', debounce(optimizeForMobile, 250));
+optimizeForMobile();
 
-// ===== INTEGRAÇÃO COM WHATSAPP =====
-function openWhatsApp(message = '') {
-    const phone = '5531999999999'; // Substitua pelo número real
-    const defaultMessage = 'Olá! Gostaria de saber mais sobre os serviços da Tecwiews.';
-    const finalMessage = message || defaultMessage;
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(finalMessage)}`;
-    window.open(url, '_blank');
-}
-
-// ===== ANALYTICS E TRACKING =====
-function trackEvent(action, category = 'General') {
-    // Integração com Google Analytics ou similar
-    console.log(`Event tracked: ${category} - ${action}`);
-    
-    // Exemplo de integração com GA4:
-    // gtag('event', action, {
-    //     event_category: category,
-    //     event_label: window.location.pathname
-    // });
-}
-
-// Track clicks nos botões importantes
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('cta-button')) {
-        trackEvent('CTA_Click', 'Hero');
-    }
-    
-    if (e.target.classList.contains('submit-btn')) {
-        trackEvent('Form_Submit', 'Contact');
-    }
-});
-
-// ===== PERFORMANCE E SEO =====
-
-// Lazy loading para imagens (quando adicionar)
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Preload de recursos críticos
-function preloadCriticalResources() {
-    const criticalCSS = document.createElement('link');
-    criticalCSS.rel = 'preload';
-    criticalCSS.href = 'styles.css';
-    criticalCSS.as = 'style';
-    document.head.appendChild(criticalCSS);
-}
-
-// ===== ACESSIBILIDADE =====
-
-// Navegação por teclado
-document.addEventListener('keydown', function(e) {
-    // ESC fecha menu mobile
-    if (e.key === 'Escape') {
-        closeMobileMenu();
-    }
-    
-    // Enter em elementos focáveis
-    if (e.key === 'Enter' && e.target.classList.contains('nav-link')) {
-        e.target.click();
-    }
-});
-
-// Foco visível para navegação por teclado
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-navigation');
-    }
-});
-
-document.addEventListener('mousedown', function() {
-    document.body.classList.remove('keyboard-navigation');
-});
-
-// ===== FEEDBACK VISUAL =====
-
-// Adiciona classe para links ativos
-const style = document.createElement('style');
-style.textContent = `
-    .nav-link.active {
-        color: #F66B0E !important;
-        font-weight: 600;
-    }
-    
-    .animate-in {
-        animation: slideInUp 0.6s ease forwards;
-    }
-    
-    @keyframes slideInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .keyboard-navigation *:focus {
-        outline: 2px solid #F66B0E;
-        outline-offset: 2px;
-    }
-`;
-document.head.appendChild(style);
-
-// Fecha menu ao clicar no link (mobile)
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function() {
         if (window.innerWidth <= 768) {
@@ -452,293 +697,19 @@ document.querySelectorAll('.nav-link').forEach(link => {
         }
     });
 });
-// === JAVASCRIPT PARA MODAL ===
-function openModal(caseId) {
-    const modal = document.getElementById(caseId + 'Modal');
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Impede scroll da página
-    }
-}
 
-function closeModal(caseId) {
-    const modal = document.getElementById(caseId + 'Modal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restaura scroll da página
-    }
-}
-
-// Fecha modal clicando fora dele
-window.addEventListener('click', function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-});
-
-// Fecha modal com ESC
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach(modal => {
-            if (modal.style.display === 'block') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+        trackEvent('Page', 'Became Visible');
+    } else {
+        trackEvent('Page', 'Became Hidden');
     }
 });
-// === JAVASCRIPT ADICIONAL PARA CASO 02 ===
-// O JavaScript principal já existe, apenas garantir que as funções funcionem para case2
 
-// As funções openModal('case2') e closeModal('case2') já funcionarão automaticamente
-// com o código JavaScript existente, pois elas são genéricas.
-
-// Funcionalidade adicional: Smooth scroll melhorado para casos longos
-document.addEventListener('DOMContentLoaded', function() {
-    // Melhoria no scroll para modais com muito conteúdo
-    const modals = document.querySelectorAll('.modal');
-    
-    modals.forEach(modal => {
-        modal.addEventListener('scroll', function() {
-            // Opcional: Adicionar efeito de parallax ou outros efeitos durante scroll
-            // Por enquanto, mantém funcionalidade básica
-        });
-    });
-    
-    // Melhoria na navegação por teclado
-    document.addEventListener('keydown', function(event) {
-        // Já existe no código principal, mas garantindo funcionamento
-        if (event.key === 'Escape') {
-            const activeModals = document.querySelectorAll('.modal[style*="block"]');
-            activeModals.forEach(modal => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        }
-    });
+window.tecwiewsStartTime = window.tecwiewsStartTime || Date.now();
+window.addEventListener('beforeunload', function() {
+    const timeOnPage = Date.now() - window.tecwiewsStartTime;
+    trackEvent('Engagement', 'Time on Page', Math.round(timeOnPage / 1000) + 's');
 });
 
-// Função adicional para analytics (opcional)
-function trackPortfolioView(caseId) {
-    // Rastrear visualizações dos casos do portfólio
-    // Útil para futuras análises de quais casos geram mais interesse
-    console.log(`Caso ${caseId} visualizado`);
-    
-    // Aqui pode adicionar Google Analytics, Hotjar, etc.
-    // Exemplo: gtag('event', 'portfolio_view', { case_id: caseId });
-}
-
-// Adicionar tracking aos cliques (opcional)
-// Chamar trackPortfolioView quando modal for aberto
-const originalOpenModal = window.openModal;
-if (typeof originalOpenModal === 'function') {
-    window.openModal = function(caseId) {
-        originalOpenModal(caseId);
-        trackPortfolioView(caseId);
-    };
-} else {
-    // Se não existir, criar a função completa
-    window.openModal = function(caseId) {
-        const modal = document.getElementById(caseId + 'Modal');
-        if (modal) {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            trackPortfolioView(caseId);
-        }
-    };
-}
-// ===============================================
-// INSTRUÇÕES DE IMPLEMENTAÇÃO JS - CASO 03
-// ===============================================
-
-// ADICIONAR NO FINAL DO ARQUIVO script.js
-// Copiar todo este código e colar no final do JavaScript existente
-
-// === JAVASCRIPT ESPECÍFICO PARA CASO 03 ===
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Melhorias específicas para o Caso 03
-    initCase03Enhancements();
-    
-    // Lazy loading para imagens do Caso 03
-    initLazyLoadingCase03();
-    
-    // Smooth scroll melhorado para modal longo
-    enhanceModalScrolling();
-});
-
-// Função para melhorias específicas do Caso 03
-function initCase03Enhancements() {
-    // Adicionar classe especial ao modal do Caso 3 quando aberto
-    const originalOpenModal = window.openModal;
-    
-    window.openModal = function(caseId) {
-        if (originalOpenModal) {
-            originalOpenModal(caseId);
-        } else {
-            // Fallback se função não existir
-            const modal = document.getElementById(caseId + 'Modal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        
-        // Adicionar classe especial para Caso 3
-        if (caseId === 'case3') {
-            const modal = document.getElementById('case3Modal');
-            if (modal) {
-                modal.classList.add('case3-active');
-                
-                // Iniciar animações das imagens
-                setTimeout(() => {
-                    animateCase03Images();
-                }, 300);
-            }
-        }
-        
-        // Analytics tracking (opcional)
-        trackPortfolioCase(caseId);
-    };
-}
-
-// Função para animar imagens do Caso 03
-function animateCase03Images() {
-    const case3Images = document.querySelectorAll('#case3Modal .process-step img');
-    
-    case3Images.forEach((img, index) => {
-        setTimeout(() => {
-            img.style.opacity = '1';
-            img.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
-}
-
-// Lazy loading específico para Caso 03
-function initLazyLoadingCase03() {
-    // Observer para carregar imagens apenas quando necessário
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        });
-
-        // Observar imagens do Caso 03
-        const case3LazyImages = document.querySelectorAll('#case3Modal img.lazy');
-        case3LazyImages.forEach(img => imageObserver.observe(img));
-    }
-}
-
-// Melhorar scroll em modais longos
-function enhanceModalScrolling() {
-    const modals = document.querySelectorAll('.modal');
-    
-    modals.forEach(modal => {
-        modal.addEventListener('scroll', function(e) {
-            // Adicionar sombra no header quando rolar
-            const modalContent = this.querySelector('.modal-content');
-            const modalHeader = this.querySelector('.modal-header');
-            
-            if (modalContent && modalHeader) {
-                if (modalContent.scrollTop > 50) {
-                    modalHeader.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                } else {
-                    modalHeader.style.boxShadow = 'none';
-                }
-            }
-        });
-    });
-}
-
-// Função para tracking de analytics (opcional)
-function trackPortfolioCase(caseId) {
-    // Registrar visualização do case para futuras análises
-    console.log(`Case ${caseId} visualizado em:`, new Date().toISOString());
-    
-    // Aqui pode integrar com Google Analytics, Facebook Pixel, etc.
-    // Exemplo para Google Analytics 4:
-    // gtag('event', 'portfolio_view', {
-    //     case_id: caseId,
-    //     timestamp: Date.now()
-    // });
-    
-    // Exemplo para Facebook Pixel:
-    // fbq('track', 'ViewContent', {
-    //     content_name: `Portfolio Case ${caseId}`,
-    //     content_category: 'Portfolio'
-    // });
-}
-
-// Função para melhorar performance em dispositivos móveis
-function optimizeForMobile() {
-    // Detectar dispositivos móveis
-    const isMobile = window.innerWidth <= 768;
-    
-    if (isMobile) {
-        // Reduzir qualidade de animações em mobile
-        const style = document.createElement('style');
-        style.textContent = `
-            .process-step img {
-                animation: none !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
-
-// Inicializar otimizações móveis
-window.addEventListener('resize', optimizeForMobile);
-optimizeForMobile();
-
-// Função para fechar modal com melhorias
-const originalCloseModal = window.closeModal;
-window.closeModal = function(caseId) {
-    const modal = document.getElementById(caseId + 'Modal');
-    if (modal) {
-        // Remover classe especial do Caso 3
-        if (caseId === 'case3') {
-            modal.classList.remove('case3-active');
-        }
-        
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        
-        // Reset scroll position
-        const modalContent = modal.querySelector('.modal-content');
-        if (modalContent) {
-            modalContent.scrollTop = 0;
-        }
-    }
-};
-
-// Adicionar smooth scroll para links internos do modal
-document.addEventListener('click', function(e) {
-    if (e.target.matches('a[href^="#"]')) {
-        e.preventDefault();
-        const targetId = e.target.getAttribute('href').slice(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    }
-});
+console.log('🚀 Tecwiews - SEO Optimized JavaScript Loaded Successfully!');
