@@ -42,34 +42,34 @@
 </head>
 <body>
     <!-- HEADER - Cabeçalho fixo com navegação -->
-    <header class="header" id="header">
-        <div class="nav-container">
-            <!-- Logo da empresa -->
-            <div class="logo">
-                <img src="Imagens_Site/Logo Tecviews_01.png" alt="Tecviews - Logo da empresa de documentação técnica" loading="eager" class="logo-image">
-                TECVIEWS
-            </div>
-            
-            <!-- Menu de navegação principal -->
-            <nav class="nav">
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#home" class="nav-link">Início</a></li>
-                    <li><a href="#services" class="nav-link">Serviços</a></li>
-                    <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
-                    <li><a href="#segments" class="nav-link">Segmentos</a></li>
-                    <li><a href="#benefits" class="nav-link">Benefícios</a></li>
-                    <li><a href="#contact" class="nav-link">Contato</a></li>
-                </ul>
-                
-                <!-- Botão hambúrguer para mobile -->
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+<header class="header" id="header">
+    <div class="nav-container">
+        <!-- Logo da empresa -->
+        <div class="logo">
+            <img src="Imagens_Site/Logo Tecviews_01.png" alt="Tecviews - Logo da empresa de documentação técnica" loading="eager" class="logo-image">
+            TECVIEWS
         </div>
-    </header>
+        
+        <!-- Menu de navegação principal - CORRIGIDO -->
+        <nav class="nav" id="nav-menu">
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#segments" class="nav-link">Segmentos</a></li>
+                <li><a href="#benefits" class="nav-link">Benefícios</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Botão hambúrguer para mobile -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
 
     <!-- SEÇÃO HERO - Primeira impressão e chamada principal -->
     <section id="home" class="hero">
@@ -153,8 +153,6 @@
         </div>
     </section>
 
-    </section> <!-- Fim da seção services -->
-
     <!-- SEÇÃO PORTFÓLIO - Inserir no HTML entre #services e #contact -->
 <section id="portfolio" class="portfolio-section">
     <div class="container">
@@ -210,7 +208,34 @@
     </div>
 </div>
 
-<!-- MODAL DO CASO 2 - ADICIONAR APÓS O MODAL DO CASO 1 -->
+<!-- Card do Caso 3 -->
+<div class="portfolio-card" onclick="openModal('case3')">
+    <div class="card-image">
+        <img src="Portifolio_Caso.03/Mockup_Home.png" alt="Site profissional e catálogo digital para indústria de molas - 40% redução no atendimento" loading="eager">
+    </div>
+    <div class="card-content">
+        <h3>Presença Digital para Indústria</h3>
+        <p class="card-summary">Site profissional + catálogo técnico para fabricante de molas</p>
+        <div class="card-stats">
+            <span class="stat-item">
+                <strong>+40%</strong> redução atendimento
+            </span>
+            <span class="stat-item">
+                <strong>+25%</strong> contatos qualificados
+            </span>
+        </div>
+        <div class="card-tags">
+            <span class="tag">Site Profissional</span>
+            <span class="tag">Catálogo Digital</span>
+            <span class="tag">Presença Digital</span>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL DO CASO 2 -->
 <div id="case2Modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('case2')">&times;</span>
@@ -362,164 +387,127 @@
 </div>
 
 <!-- MODAL DO CASO 3 -->
-<!-- =============================================== -->
-<!-- INSTRUÇÕES DE IMPLEMENTAÇÃO HTML - CASO 03     -->
-<!-- =============================================== -->
-
-<!-- 1. SUBSTITUIR O CARD DO CASO 3 NA SEÇÃO PORTFÓLIO -->
-<!-- Localizar o terceiro card "coming-soon" e substituir por: -->
-
-<!-- Card do Caso 3 -->
-<div class="portfolio-card" onclick="openModal('case3')">
-    <div class="card-image">
-        <img src="Portifolio_Caso.03/Mockup_Home.png" alt="Site profissional e catálogo digital para indústria de molas - 40% redução no atendimento" loading="eager">
-    </div>
-    <div class="card-content">
-        <h3>Presença Digital para Indústria</h3>
-        <p class="card-summary">Site profissional + catálogo técnico para fabricante de molas</p>
-        <div class="card-stats">
-            <span class="stat-item">
-                <strong>+40%</strong> redução atendimento
-            </span>
-            <span class="stat-item">
-                <strong>+25%</strong> contatos qualificados
-            </span>
+<div id="case3Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('case3')">&times;</span>
+        
+        <div class="modal-header">
+            <h2>Presença Digital para Indústria</h2>
+            <div class="modal-tags">
+                <span class="tag">Site Profissional</span>
+                <span class="tag">Catálogo Digital</span>
+                <span class="tag">Documentação 3D</span>
+                <span class="tag">Presença Digital</span>
+            </div>
         </div>
-        <div class="card-tags">
-            <span class="tag">Site Profissional</span>
-            <span class="tag">Catálogo Digital</span>
-            <span class="tag">Presença Digital</span>
+
+        <div class="modal-summary">
+            <div class="summary-grid">
+                <div class="problem-box">
+                    <h4>🔴 O Problema</h4>
+                    <ul>
+                        <li>Empresa sem presença digital</li>
+                        <li>Produtos sem catálogo técnico</li>
+                        <li>Vendas limitadas a indicações</li>
+                        <li>Processo manual de orçamentos</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <h4>🔧 A Solução</h4>
+                    <ul>
+                        <li>Site profissional responsivo</li>
+                        <li>Catálogo técnico digital</li>
+                        <li>Modelagem 3D dos produtos</li>
+                        <li>Formulários automatizados</li>
+                    </ul>
+                </div>
+                
+                <div class="results-box">
+                    <h4>✅ O Resultado</h4>
+                    <ul>
+                        <li><strong>+40%</strong> redução no atendimento</li>
+                        <li><strong>+25%</strong> contatos qualificados</li>
+                        <li><strong>+60%</strong> organização produtos</li>
+                        <li><strong>+30%</strong> credibilidade percebida</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-process">
+            <h3>O Projeto Desenvolvido</h3>
+            
+            <div class="process-step">
+                <h4>1. Site Profissional</h4>
+                <div class="step-images single">
+                    <img src="Portifolio_Caso.03/Mockup_Home.png" alt="Homepage do site">
+                </div>
+                <p>Desenvolvimento de site responsivo com foco no público industrial, navegação intuitiva por produtos e design profissional que transmite confiança.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>2. Catálogo Técnico Digital</h4>
+                <div class="step-images single">
+                    <img src="Portifolio_Caso.03/Mockup_Catálogo.png" alt="Projeto/desenho tecnico/produto/Catálogo técnico" loading="lazy">
+                </div>
+                <p>Criação de catálogo interativo com especificações técnicas detalhadas, tabelas de dimensões, materiais e tolerâncias para facilitar a seleção.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>3. Modelagem 3D dos Produtos</h4>
+                <div class="step-images">
+                    <img src="Portifolio_Caso.03/3D Mola_C.png" alt="Impressão 3D/modelagem 3d/Modelo 3D mola tração" loading="lazy">
+                    <img src="Portifolio_Caso.03/3D Mola_T.png" alt="Impressão 3D/modelagem 3d/Modelo 3D mola tração" loading="lazy">
+                </div>
+                <p>Modelagem tridimensional precisa da linha de produtos com especificações exatas para documentação técnica, visualização e especificação pelos clientes.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>4. Documentação Técnica 2D</h4>
+                <div class="step-images single">
+                    <img src="Portifolio_Caso.03/2D-Molas Tec..png" alt="Especificação técnica 2D/Impressão 3D/modelagem 3d/Modelo 3D e desenho tecnico" loading="lazy">
+                </div>
+                <p>Criação de desenhos técnicos padronizados com cotas, tolerâncias e especificações para fabricação, especificação e controle de qualidade.</p>
+            </div>
+
+            <div class="process-step">
+                <h4>5. Sistema de Orçamentos</h4>
+                <div class="step-images single">
+                    <img src="Portifolio_Caso.03/Mockup_formulario.png" alt="Formulário de orçamento/Impressão 3D/modelagem 3d/Modelo 3D e desenho tecnico" loading="lazy">
+                </div>
+                <p>Formulário estruturado para produtos personalizados com campos técnicos específicos, upload de arquivos e sistema de priorização de prazos.</p>
+            </div>
+        </div>
+
+        <div class="modal-stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Redução atendimento</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25%</span>
+                    <span class="stat-label">Mais contatos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">60%</span>
+                    <span class="stat-label">Organização</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">30%</span>
+                    <span class="stat-label">Credibilidade</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-cta">
+            <h3>Precisa de presença digital para sua indústria?</h3>
+            <p>Criamos sites profissionais e catálogos técnicos que geram resultados mensuráveis</p>
+            <a href="#contact" class="btn-primary" onclick="closeModal('case3')">Solicitar Proposta</a>
         </div>
     </div>
 </div>
-
-<!-- ================================================= -->
-<!-- 2. ADICIONAR O MODAL COMPLETO APÓS MODAL CASO 2  -->
-<!-- Localizar </div> que fecha case2Modal e adicionar: -->
-
-<!-- MODAL DO CASO 3 -->
-    <div id="case3Modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('case3')">&times;</span>
-            
-            <div class="modal-header">
-                <h2>Presença Digital para Indústria</h2>
-                <div class="modal-tags">
-                    <span class="tag">Site Profissional</span>
-                    <span class="tag">Catálogo Digital</span>
-                    <span class="tag">Documentação 3D</span>
-                    <span class="tag">Presença Digital</span>
-                </div>
-            </div>
-
-            <div class="modal-summary">
-                <div class="summary-grid">
-                    <div class="problem-box">
-                        <h4>🔴 O Problema</h4>
-                        <ul>
-                            <li>Empresa sem presença digital</li>
-                            <li>Produtos sem catálogo técnico</li>
-                            <li>Vendas limitadas a indicações</li>
-                            <li>Processo manual de orçamentos</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="solution-box">
-                        <h4>🔧 A Solução</h4>
-                        <ul>
-                            <li>Site profissional responsivo</li>
-                            <li>Catálogo técnico digital</li>
-                            <li>Modelagem 3D dos produtos</li>
-                            <li>Formulários automatizados</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="results-box">
-                        <h4>✅ O Resultado</h4>
-                        <ul>
-                            <li><strong>+40%</strong> redução no atendimento</li>
-                            <li><strong>+25%</strong> contatos qualificados</li>
-                            <li><strong>+60%</strong> organização produtos</li>
-                            <li><strong>+30%</strong> credibilidade percebida</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-process">
-                <h3>O Projeto Desenvolvido</h3>
-                
-                <div class="process-step">
-                    <h4>1. Site Profissional</h4>
-                    <div class="step-images single">
-                        <img src="Portifolio_Caso.03/Mockup_Home.png" alt="Homepage do site">
-                    </div>
-                    <p>Desenvolvimento de site responsivo com foco no público industrial, navegação intuitiva por produtos e design profissional que transmite confiança.</p>
-                </div>
-
-                <div class="process-step">
-                    <h4>2. Catálogo Técnico Digital</h4>
-                    <div class="step-images single">
-                        <img src="Portifolio_Caso.03/Mockup_Catálogo.png" alt="Projeto/desenho tecnico/produto/Catálogo técnico" loading="lazy">
-                    </div>
-                    <p>Criação de catálogo interativo com especificações técnicas detalhadas, tabelas de dimensões, materiais e tolerâncias para facilitar a seleção.</p>
-                </div>
-
-                <div class="process-step">
-                    <h4>3. Modelagem 3D dos Produtos</h4>
-                    <div class="step-images">
-                        <img src="Portifolio_Caso.03/3D Mola_C.png" alt="Impressão 3D/modelagem 3d/Modelo 3D mola tração" loading="lazy">
-                        <img src="Portifolio_Caso.03/3D Mola_T.png" alt="Impressão 3D/modelagem 3d/Modelo 3D mola tração" loading="lazy">
-                    </div>
-                    <p>Modelagem tridimensional precisa da linha de produtos com especificações exatas para documentação técnica, visualização e especificação pelos clientes.</p>
-                </div>
-
-                <div class="process-step">
-                    <h4>4. Documentação Técnica 2D</h4>
-                    <div class="step-images single">
-                        <img src="Portifolio_Caso.03/2D-Molas Tec..png" alt="Especificação técnica 2D/Impressão 3D/modelagem 3d/Modelo 3D e desenho tecnico" loading="lazy">
-                    </div>
-                    <p>Criação de desenhos técnicos padronizados com cotas, tolerâncias e especificações para fabricação, especificação e controle de qualidade.</p>
-                </div>
-
-                <div class="process-step">
-                    <h4>5. Sistema de Orçamentos</h4>
-                    <div class="step-images single">
-                        <img src="Portifolio_Caso.03/Mockup_formulario.png" alt="Formulário de orçamento/Impressão 3D/modelagem 3d/Modelo 3D e desenho tecnico" loading="lazy">
-                    </div>
-                    <p>Formulário estruturado para produtos personalizados com campos técnicos específicos, upload de arquivos e sistema de priorização de prazos.</p>
-                </div>
-            </div>
-
-            <div class="modal-stats">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">40%</span>
-                        <span class="stat-label">Redução atendimento</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">25%</span>
-                        <span class="stat-label">Mais contatos</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">60%</span>
-                        <span class="stat-label">Organização</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">30%</span>
-                        <span class="stat-label">Credibilidade</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-cta">
-                <h3>Precisa de presença digital para sua indústria?</h3>
-                <p>Criamos sites profissionais e catálogos técnicos que geram resultados mensuráveis</p>
-                <a href="#contact" class="btn-primary" onclick="closeModal('case3')">Solicitar Proposta</a>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- MODAL DO CASO 1 -->
 <div id="case1Modal" class="modal">
@@ -812,7 +800,7 @@
                 <div class="footer-links">
                     <h4>Links Rápidos</h4>
                     <ul>
-                        <li><a href="#home">Início</a></li>
+                        <li><a href="#home">Home</a></li>
                         <li><a href="#services">Serviços</a></li>
                         <li><a href="#segments">Segmentos</a></li>
                         <li><a href="#contact">Contato</a></li>
@@ -906,5 +894,3 @@
 
 </body>
 </html>
-
-            <div class="

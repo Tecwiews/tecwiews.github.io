@@ -1,5 +1,5 @@
-// ===== TECVIEWS - JAVASCRIPT OTIMIZADO =====
-// Versão final sem duplicações
+// ===== TECVIEWS - JAVASCRIPT FINAL CORRIGIDO =====
+// Versão final com menu hambúrguer funcionando
 
 document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
@@ -12,6 +12,56 @@ document.addEventListener('DOMContentLoaded', function() {
     initAccessibilityEnhancements();
     injectOptimizedStyles();
 });
+
+// ===== MENU HAMBÚRGUER - CORRIGIDO ===== 
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            // Toggle das classes
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            // Bloquear scroll quando menu estiver aberto
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            
+            // Analytics
+            trackEvent('Mobile Menu', navMenu.classList.contains('active') ? 'Open' : 'Close');
+            
+            console.log('Menu hambúrguer clicado:', navMenu.classList.contains('active') ? 'ABERTO' : 'FECHADO');
+        });
+        
+        // Fechar menu ao clicar nos links
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = '';
+                console.log('Menu fechado via link');
+            });
+        });
+    } else {
+        console.error('Elementos do menu não encontrados:', {
+            hamburger: !!hamburger,
+            navMenu: !!navMenu
+        });
+    }
+}
+
+function closeMobileMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const hamburger = document.getElementById('hamburger');
+    
+    if (navMenu && hamburger) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+        console.log('Menu fechado manualmente');
+    }
+}
 
 // ===== SEO OPTIMIZATIONS =====
 function initSEOOptimizations() {
@@ -318,33 +368,6 @@ function highlightActiveSection() {
             }
         }
     });
-}
-
-// ===== MOBILE MENU =====
-function initMobileMenu() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            trackEvent('Mobile Menu', navMenu.classList.contains('active') ? 'Open' : 'Close');
-        });
-    }
-}
-
-function closeMobileMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    const hamburger = document.getElementById('hamburger');
-    
-    if (navMenu && hamburger) {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.style.overflow = '';
-    }
 }
 
 // ===== FORM HANDLER =====
@@ -690,6 +713,7 @@ function debounce(func, wait) {
 window.addEventListener('resize', debounce(optimizeForMobile, 250));
 optimizeForMobile();
 
+// GARANTIR QUE OS LINKS FECHEM O MENU MOBILE
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function() {
         if (window.innerWidth <= 768) {
@@ -712,4 +736,4 @@ window.addEventListener('beforeunload', function() {
     trackEvent('Engagement', 'Time on Page', Math.round(timeOnPage / 1000) + 's');
 });
 
-console.log('🚀 Tecviews - SEO Optimized JavaScript Loaded Successfully!');
+console.log('🚀 Tecviews - Menu Hambúrguer CORRIGIDO - JavaScript Loaded Successfully!');
