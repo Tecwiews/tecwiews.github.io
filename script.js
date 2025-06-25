@@ -1,4 +1,4 @@
-// ===== TECWIEWS - JAVASCRIPT OTIMIZADO =====
+// ===== TECVIEWS - JAVASCRIPT OTIMIZADO =====
 // Versão final sem duplicações
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -70,7 +70,7 @@ function trackWebVital(name, value) {
         gtag('event', 'web_vitals', {
             name: name,
             value: Math.round(value),
-            custom_parameter: 'tecwiews_performance'
+            custom_parameter: 'tecviews_performance'
         });
     }
 }
@@ -113,11 +113,11 @@ function markPortfolioAsArticles() {
                 "description": description,
                 "author": {
                     "@type": "Organization",
-                    "name": "Tecwiews"
+                    "name": "Tecviews"
                 },
                 "publisher": {
                     "@type": "Organization",
-                    "name": "Tecwiews"
+                    "name": "Tecviews"
                 }
             };
             
@@ -580,7 +580,7 @@ function trackEvent(category, action, label = '') {
         gtag('event', action, {
             event_category: category,
             event_label: label,
-            custom_parameter: 'tecwiews_interaction'
+            custom_parameter: 'tecviews_interaction'
         });
     }
     
@@ -706,10 +706,10 @@ document.addEventListener('visibilitychange', function() {
     }
 });
 
-window.tecwiewsStartTime = window.tecwiewsStartTime || Date.now();
+window.tecviewsStartTime = window.tecviewsStartTime || Date.now();
 window.addEventListener('beforeunload', function() {
-    const timeOnPage = Date.now() - window.tecwiewsStartTime;
+    const timeOnPage = Date.now() - window.tecviewsStartTime;
     trackEvent('Engagement', 'Time on Page', Math.round(timeOnPage / 1000) + 's');
 });
 
-console.log('🚀 Tecwiews - SEO Optimized JavaScript Loaded Successfully!');
+console.log('🚀 Tecviews - SEO Optimized JavaScript Loaded Successfully!');
