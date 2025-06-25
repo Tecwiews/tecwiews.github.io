@@ -14,24 +14,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== MENU HAMBÚRGUER - CORRIGIDO ===== 
+// ===== MENU HAMBÚRGUER - CORREÇÃO FINAL ===== 
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            // Toggle das classes
+        // NOVA FUNÇÃO CORRIGIDA
+        hamburger.onclick = function() {
+            console.log('Menu clicado!');
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             
-            // Bloquear scroll quando menu estiver aberto
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            // Forçar mudança visual
+            if (navMenu.classList.contains('active')) {
+                navMenu.style.left = '0px';
+                document.body.style.overflow = 'hidden';
+            } else {
+                navMenu.style.left = '-100%';
+                document.body.style.overflow = '';
+            }
             
-            // Analytics
             trackEvent('Mobile Menu', navMenu.classList.contains('active') ? 'Open' : 'Close');
-            
-            console.log('Menu hambúrguer clicado:', navMenu.classList.contains('active') ? 'ABERTO' : 'FECHADO');
-        });
+        };
         
         // Fechar menu ao clicar nos links
         const navLinks = navMenu.querySelectorAll('.nav-link');
@@ -39,14 +44,9 @@ function initMobileMenu() {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
+                navMenu.style.left = '-100%';
                 document.body.style.overflow = '';
-                console.log('Menu fechado via link');
             });
-        });
-    } else {
-        console.error('Elementos do menu não encontrados:', {
-            hamburger: !!hamburger,
-            navMenu: !!navMenu
         });
     }
 }
@@ -58,8 +58,8 @@ function closeMobileMenu() {
     if (navMenu && hamburger) {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
+        navMenu.style.left = '-100%';
         document.body.style.overflow = '';
-        console.log('Menu fechado manualmente');
     }
 }
 
