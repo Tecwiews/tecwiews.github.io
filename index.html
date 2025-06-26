@@ -39,6 +39,15 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <link rel="preload" href="Imagens_Site/Logo Tecviews_01.png" as="image">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("bltMU_I6wB5FoIsez"); // ← Substitua pela sua Public Key
+    })();
+    </script>
+
 </head>
 <body>
     <!-- HEADER - Cabeçalho fixo com navegação -->
@@ -326,7 +335,7 @@
             <!-- Caso 02.2 - Máquina -->
             <div class="case-container">
                 <div class="case-header-sub">
-                    <h4>⚙️ Caso 02.2: Máquina Limpadora</h4>
+                    <h4>⚙️ Caso 02.2: Máquina Climpadora</h4>
                     <p class="case-description">Componente simples mas crítico - Fabricante sem suporte adequado</p>
                 </div>
                 

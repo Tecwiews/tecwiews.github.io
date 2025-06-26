@@ -986,6 +986,42 @@ html {
     border-left: 4px solid #205375;
 }
 
+/* Estabilizar formulário durante envio */
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(17, 43, 60, 0.1);
+    border-left: 4px solid #205375;
+    position: relative; /* ADICIONAR */
+    min-height: 600px;  /* ADICIONAR - altura mínima */
+}
+
+.submit-btn {
+    /* Suas propriedades existentes... */
+    min-height: 50px;   /* ADICIONAR */
+    min-width: 150px;   /* ADICIONAR */
+}
+
+.success-message {
+    position: absolute; /* ADICIONAR */
+    top: 10px;         /* ADICIONAR */
+    left: 2rem;        /* ADICIONAR */
+    right: 2rem;       /* ADICIONAR */
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: none;
+    z-index: 10;       /* ADICIONAR */
+}
+
+.success-message.show {
+    display: block;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }

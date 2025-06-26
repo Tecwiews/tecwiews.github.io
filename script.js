@@ -466,20 +466,43 @@ function addRealTimeValidation(form) {
     });
 }
 
+let isSubmitting = false;
+
 function handleFormSubmission(form) {
+    if (isSubmitting) return;
+    isSubmitting = true;
+    
     const submitBtn = form.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
     
-    setTimeout(() => {
-        showSuccessMessage();
-        form.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        trackEvent('Form', 'Contact Form Submitted');
-    }, 2000);
+    const templateParams = {
+        to_email: 'hugo.leonardo@tecviews.com',
+        from_name: form.name.value,
+        from_email: form.email.value,
+        company: form.company.value || 'Não informado',
+        phone: form.phone.value || 'Não informado',
+        service: form.service.value || 'Não informado',
+        message: form.message.value,
+        reply_to: form.email.value
+    };
+    
+    emailjs.send('service_crpsmtt', 'template_ss2qg6n', templateParams)
+        .then(() => {
+            showSuccessMessage();
+            form.reset();
+        })
+        .catch((error) => {
+            console.error('Erro:', error);
+            alert('Erro ao enviar. Tente novamente.');
+        })
+        .finally(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            isSubmitting = false;
+        });
 }
 
 function showSuccessMessage() {
